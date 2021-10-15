@@ -1,108 +1,88 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# MILESTON PROJECT 3 - ēd šo
 
-Welcome USER_NAME,
+## OVERVIEW
+A study by Colin Camera from Caltech (https://www.caltech.edu/about/news/scientists-uncover-why-you-cant-decide-what-order-lunch-83881) found interesting results for humans with their decision when given a list of options. They found brain activity in the anterior cingulate cortex (ACC) and the striatum to be most active via an fMRI scan in an study where groups of participants were given different number of choices to choose from. From the results, Camera estimated that humans ideal number of choices will range from 8-15 depending on the type of choices.  
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Caltech have asked me to create an app/website that will help people make decision on what to cook by giving them a list of recipes.  
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## USER EXPERIENCE (UX)
+### Project goals
+* To make a website where the user will be able to use a CRUD (create, read, update, and delete) function in the form of recipes 
+* The website must encourage the user to use the website again via its content (mainly recipes), appearance and ease of navigation
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### User stories
+* first time visitor goals:
+    * As a first time visitor, I want to be able to easily find and see a host of recipes 
+    * As a first time visitor, visuals and design of the website must entice me to explore the website 
+    * As a first time visitor, I want to see details of the selected recipe in an easy to view layout 
+    * As a first time visitor, I should be acknowledged of any dietary elements to the recipe such as meat-free 
+* Returning visitor goals 
+    * As a returning visitor, I want to be able to know which recipes I have made 
+    * Be given suggestions of which recipes to cook 
+    * Be able to add to the host of recipes with my own recipes 
+    * Able to edit and delete my entries 
+    * Search for recipes and even the poster/other users 
+* Frequent visitor goals 
+    * Save recipes for later viewings 
+    * See more and more recipes added to the database 
+* Admin goals 
+    * Maintain the website 
+    * To have the option to delete certain recipes and members 
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
+## THE 5 PLANES
+### Strategy 
+* Purpose of website? To be a given a database of recipes so they can choose and cook. 
+* Target audience? Young adults to mature/elderly adults, and especially those that enjoy cooking 
+* Value to the user? Takes away the difficultness of deciding what to eat and makes it a fun way to choose what to eat 
+* What will make a good experience? A clean appearance, ability to contribute to an online community, and easy access to sections 
+* How are we different? We tell them what they can possibly cook via a short list instead of giving them a database of recipes which they will possibly be overloaded with choices to the point of being put off and cook their usual meal or order a takeaway 
+* What we should not do? Simplicity is very much a strong part of the app/website in terms of how we give them a short menu/choices of what to cook; other parts of the website should also follow suite such as the appearance and navigation 
 
-Another blue button should appear to click: _Open Browser_.
+### Scope 
+Intended features: 
+* A page showing up to 8 recipes for the user to choose from 
+* Ability to add, deletes, and edit recipes to add to the host of recipes 
+* A profile page showing the users previous made recipes, their contributions and to delete their account 
+Content: 
+* Simple appearance  
+* Engaging writing 
+Future features: 
+* To be able to leave comments/reviews of the recipes 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Structure
+A non-linear structure/navigation will be used as there will be a few links. The host of recipes will be the main reason as it will not nice for the viewer to see every recipe; with all its details, in a nonlinear structure.
 
-A blue button should appear to click: _Make Public_,
+Interaction design:  
+* The layout of the website must be consistent for ease of learning and using of the website which includes colour and visual content (e.g. All forms must have curved edges and with a pink background). 
+* Error pages should be made which will be much more visually and mentally pleasant than the default browsers default page. Have it lead to a the home page or a relevant page. 
 
-Another blue button should appear to click: _Open Browser_.
+Information architecture:
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* [Sitemap](readme_files/images/sitemmap.png)
 
-To log into the Heroku toolbelt CLI:
+### Skeleton
+Laptop/PC Version
+* Black and white
+    * Home page - [image](readme_files/images/home_page_top.png) [image](readme_files/images/home_page_bottom.png)
+    * Login page - [image](readme_files/images/login_page.png)
+    * Register page - [image](readme_files/images/register_page.png)
+    * Profile page - [image](readme_files/images/profile.png)
+    * All recipes page - [image](readme_files/images/all_recipes.png)
+    * Random recipes page - [image](readme_files/images/random_recipes_page.png)
+    * My recipes page - [image](readme_files/images/my_recipes.png)
+    * Edit recipe page - [image](readme_files/images/edit_recipe_page.png)
+    * Add recipe page - [image](readme_files/images/add_recipe_page.png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+Mobile Version
+* Black and white
+    * Home page - [image](readme_files/images/home_page_mobile_mobile.png) [image](readme_files/images/home_page_bottom_mobile.png)
+    * Login page - [image](readme_files/images/login_page_mobile.png)
+    * Register page - [image](readme_files/images/register_page_mobile.png)
+    * Profile page - [image](readme_files/images/profile_page_mobile.png)
+    * All recipes page - [image](readme_files/images/all_recipes_page_mobile.png)
+    * Random recipes page - [image](readme_files/images/random_recipes_page_mobile.png)
+    * My recipes page - [image](readme_files/images/my_recipes_page_mobile.png)
+    * Edit recipe page - [image](readme_files/images/edit_recipe_page_mobile.png)
+    * Add recipe page - [image](readme_files/images/add_recipe_page_mobile.png)
