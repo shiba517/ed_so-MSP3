@@ -91,3 +91,14 @@ header .ncc-navbar-dec {
 .ncc-homeScreen-p2 img {
     width: 30%;
 }
+
+
+/* --------- Register (register.html) --------- */
+.ncc-form-decoration {
+    background-color: #EDEAE5;
+    border: solid black;
+}
+
+.ncc-form-decoration .ncc-btn a {
+    color: #EDEAE5;
+}
