@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,25 @@
     <title>ed-so</title>
 </head>
 <body>
-    <h1>Title from base.html</h1>
+    <header>
+        <!-- navbar for non-mobile device -->
+        <div class="navbar-fixed">
+            <nav class="nav-extended ncc-navbar-dec">
+                <div class="nav-wrapper">
+                    <a href="{{ url_for('home') }}" class="brand-logo center">CB</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger "><i class="fas fa-bars"></i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- navbar list for mobile device -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+        </ul>
+    </header>
+
     {% block content %}
     {% endblock %}
 

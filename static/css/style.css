@@ -1,3 +1,16 @@
 body {
     background-color: #EDEAE5;
 }
+
+
+/* --------- Universal --------- */
+.ncc-btn {
+    background-color: #026670;
+}
+
+
+/* --------- Navigation bar (base.html) --------- */
+header .ncc-navbar-dec {
+    background-color: #026670;
+    min-height: 5vh;
+}
