@@ -11,6 +11,23 @@ body {
     background-color: #026670;
 }
 
+.ncc-margbot-2 {
+    margin-bottom: 2rem;
+}
+
+.ncc-margbot-4 {
+    margin-bottom: 4rem;
+}
+
+.ncc-vw100 {
+    width: 100vw;
+}
+
+.ncc-vh100 {
+    height: 100vh;
+    background-color: blue;
+}
+
 
 /* --------- Navigation bar (base.html) --------- */
 header .ncc-navbar-dec {
@@ -28,7 +45,7 @@ header .ncc-navbar-dec {
     background-color: #EDEAE5;
     border: none;
     border: solid black;
-    border-right-style: hidden;
+    /* border-right-style: hidden; */
     margin-bottom: 2rem;
 }
 
@@ -56,4 +73,21 @@ header .ncc-navbar-dec {
     min-width: 40%;
     margin: 0 1rem;
     color: #EDEAE5;
+}
+
+#ncc-id-homeScreen-p2 {
+    background-color: #9FEDD7;
+    min-height: 100vh;
+    border: solid black;
+}
+
+#ncc-id-homeScreen-p2 h2 {
+    padding-top: 10vh;
+    text-transform: uppercase;
+    /* border: solid black; */
+    /* border-top-style: hidden; */
+}
+
+.ncc-homeScreen-p2 img {
+    width: 30%;
 }
