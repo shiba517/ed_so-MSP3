@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Title from home.html</h1>
-{% for user in users %}
-<p>{{ user.username }}</p>
-{% endfor %}
+<!-- **** MAIN SCREEN (PART 1) *** -->
+<div class="container">
+    <div class="row valign-wrapper ncc-homeScreen-p1">
+        <div class="col s12 m8 offset-m2 center">
+            <div class="ncc-brandCard">
+                <i class="fas fa-utensils"></i>
+                <h1>ēd-šo</h1>
+                <p>make meal choices easy :)</p>
+            </div>
+            <a href="#" class="btn-flat btn-large ncc-btn">register</a>
+            <a href="" class="btn-flat btn-large ncc-btn">more</a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
