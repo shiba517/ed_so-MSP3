@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="ncc-id-chosenCard" class="container">
+    <div class="row ">
+        <div class="col s12 m8 offset-m2 ncc-chosedRecipe-area">
+            <div class="row">
+                <div class="s12">
+                    <div class="row ncc-paddingLeftRight-1rem ncc-paddingTop-1rem">
+                        <div class="col s12 m6">
+                            <img src="../static/images/karthik-garikapati-oBbTc1VoT-0-unsplash.jpg" alt="">
+                        </div>
+                        <div class="col s12 m6 ">
+                            <h2>{{ recipe.recipe_name }}</h2>
+                            <i>created by {{ recipe.created_by }} on {{ recipe.post_date }}</i>
+                            <br>
+                            <div class="">
+                                <i class="fas fa-clock"></i>
+                                <p class="ncc-inline-block">Duration: </p>
+                                <p class="ncc-inline-block">{{ recipe.recipe_duration }}</p>
+                            </div>
+                            <div class="">
+                                <i class="fas fa-user-friends ncc-inline-block"></i>
+                                <p class="ncc-inline-block">Servings:</p>
+                                <p class="ncc-inline-block">{{ recipe.recipe_servings }}</p>
+                            </div>
+                            <h5>Description</h5>
+                            <p>{{ recipe.recipe_description }}</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="s12">
+                    <div class="row ncc-paddingLeftRight-1rem">
+                        <div class="col s12 m4">
+                            <h5>Ingredients</h5>
+                            <ul>
+                                {% for each_ingredient in ingredients %}
+                                <li>{{ each_ingredient }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col s12 m8">
+                            <h5>Instructions</h5>
+                            <ul>
+                                {% for each_instruction in instructions %}
+                                <li>{{ each_instruction }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                      
+        </div>
+        <div class="col s12 m8 offset-m2">
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

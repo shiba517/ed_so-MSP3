@@ -1,5 +1,6 @@
 import os
 import datetime
+import re
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -117,7 +118,9 @@ def add_recipe():
             "recipe_instructions": request.form.get("recipe_instructions"),
             "created_by": session["this_user"],
             "post_date": datetime.datetime.now().strftime("%B " + "%d " + "%Y"),
-            "likes": 0
+            "likes": 0,
+            "recipe_servings": request.form.get("recipe_servings"),
+            "recipe_duration": request.form.get("recipe_duration")
         }
         mongo.db.recipes.insert_one(new_recipe)
 
@@ -125,6 +128,32 @@ def add_recipe():
         return redirect(url_for("profile", username=session["this_user"]))
 
     return render_template("add_recipe.html")
+
+
+@app.route("/all_recipes")
+def all_recipes():
+    all_recipes = mongo.db.recipes.find()
+
+    return render_template("all_recipes.html", recipes=all_recipes)
+
+
+@app.route("/chosen_recipe/<recipe_id>")
+def chosen_recipe(recipe_id):
+    if not session.get("this_user"):
+        return redirect(url_for("error401"))
+
+    # Get all data for chosen/selected recipe
+    this_recipe = mongo.db.recipes.find_one({
+        "_id": ObjectId(recipe_id)
+    })
+
+    # Turning the recipe ingredients and instructions into a list
+    recipe_ingredients = this_recipe["recipe_ingredients"]
+    recipe_ingredients_into_list = re.split("\*", recipe_ingredients)
+    recipe_instructions = this_recipe["recipe_instructions"]
+    recipe_instructions_into_list = re.split("\*", recipe_instructions)
+
+    return render_template("chosen_recipe.html", recipe=this_recipe, ingredients=recipe_ingredients_into_list, instructions=recipe_instructions_into_list)
 
 
 # ------------------- Error 401 page (templates/error401.html)

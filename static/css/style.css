@@ -11,6 +11,18 @@ body {
     background-color: #026670;
 }
 
+.ncc-inline-block {
+    display: inline-block;
+}
+
+.ncc-paddingLeftRight-1rem {
+    padding: 0 1rem
+}
+
+.ncc-paddingTop-1rem {
+    padding-top: 1rem;
+}
+
 .ncc-margbot-2 {
     margin-bottom: 2rem;
 }
@@ -101,4 +113,28 @@ header .ncc-navbar-dec {
 
 .ncc-form-decoration .ncc-btn a {
     color: #EDEAE5;
+}
+
+/* --------- All recipes (all_recipes.html) --------- */
+
+.ncc-recipeCard-decoration {
+    border: none;
+    border: solid black;
+}
+
+#ncc-id-chosenCard {
+    /* background-color: #026670; */
+    
+    padding-top: 1rem;
+    margin-top: 4rem;
+}
+
+.ncc-chosedRecipe-area {
+    background-color: #EDEAE5;
+    border: solid black;
+    height: fit-content;
+}
+
+#ncc-id-chosenCard img {
+    width: 100%;
 }

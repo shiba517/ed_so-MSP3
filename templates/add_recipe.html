@@ -12,18 +12,10 @@
                 <div class="input-field center col s12">
                     <i class="fas fa-user prefix"></i>
                     <input placeholder="" id="recipe_name" name="recipe_name" type="text" minlength="5"
-                    maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" class="validate" required>
+                    maxlength="20" class="validate" required>
                     <label for="recipe_name" class="input-field">Recipe name</label>
                 </div>
                 <!-- recipe descriptions -->
-                <div class="input-field col s12">
-                    <i class="fas fa-book prefix"></i>
-                    <textarea placeholder="" id="recipe_description" name="recipe_description" type="text" minlength="5"
-                        maxlength="100" class="materialize-textarea validate" required>
-                    </textarea>
-                    <label for="recipe_description" class="active">Recipe description</label>
-                </div>
-                <!-- recipe ingredients -->
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix"></i>
                     <textarea placeholder="" id="recipe_description" name="recipe_description" type="text" minlength="5"
@@ -31,29 +23,41 @@
                     </textarea>
                     <label for="recipe_description" class="active">Recipe description</label>
                 </div>
+                <!-- recipe ingredients -->
+                <div class="input-field col s12">
+                    <i class="fas fa-lemon prefix"></i>
+                    <textarea placeholder="" id="recipe_ingredients" name="recipe_ingredients" type="text" minlength="5" class="materialize-textarea validate" required>
+                    </textarea>
+                    <label for="recipe_ingredients" class="active">Recipe ingredients (Please enter an * before each ingredient)</label>
+                </div>
                 <!-- recipe instructions -->
                 <div class="input-field col s12">
-                    <i class="fas fa-book prefix"></i>
-                    <textarea placeholder="" id="recipe_ingredients" name="recipe_ingredients" type="text" minlength="5"
-                        class="materialize-textarea validate" required>
+                    <i class="fas fa-blender prefix"></i>
+                    <textarea placeholder="" id="recipe_instructions" name="recipe_instructions" type="text" minlength="5" class="materialize-textarea validate" required>
                     </textarea>
-                    <label for="recipe_ingredients" class="active">Recipe ingredients</label>
+                    <label for="recipe_instructions" class="active">Recipe instructions (Please enter an * before each instruction)</label>
                 </div>
-                <div class="input-field col s12">
-                    <i class="fas fa-book prefix"></i>
-                    <textarea placeholder="" id="recipe_instructions" name="recipe_instructions" type="text" minlength="5"
-                        class="materialize-textarea validate" required>
-                    </textarea>
-                    <label for="recipe_instructions" class="active">Recipe instructions</label>
+                <!-- Additional information -->
+                <div class="input-field col s12 m4">
+                    <i class="fas fa-users prefix"></i>
+                    <input placeholder="" id="recipe_servings" name="recipe_servings" type="text" minlength="1"
+                        class="materialize-textarea validate" pattern="^[0-9]$" required>
+                    <label for="recipe_servings" class="active">Recipe servings</label>
                 </div>
-            </div>
+                <div class="input-field col s12 m4">
+                    <i class="fas fa-clock prefix"></i>
+                    <input placeholder="" id="recipe_duration" name="recipe_duration" type="text" minlength="1"
+                        class="materialize-textarea validate" pattern="^[0-9]$" required>
+                    <label for="recipe_duration" class="active">Recipe duration (in minutes)</label>
+                </div>
             <div class="row">
                 <div class="col s12 center">
                     <button class="btn-flat btn-large ncc-btn" type="submit">
                         <a class="">share</a>
                     </button>
                 </div>
-            </div> 
+            </div>
+            </div>
         </form>
     </div> 
          
