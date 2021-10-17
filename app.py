@@ -19,12 +19,14 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+# ------------------- Home page (templates/home.html)
 @app.route("/home")
 def home():
     all_users = mongo.db.users.find()
     return render_template("home.html", users=all_users)
 
 
+# ------------------- Register page (templates/register.html)
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -45,9 +47,13 @@ def register():
         # Creating a cookie for the new user
         session["this_user"] = request.form.get("username")
 
+        # Taking new user to their Profile page
+        return redirect(url_for("profile", username=session["this_user"]))
+
     return render_template("register.html")
 
 
+# ------------------- Login page (templates/login.html)
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -60,16 +66,26 @@ def login():
             if check_password_hash(check_user_exists["password"], request.form.get("password")):
                 # Correct password was entered
                 session["this_user"] = request.form.get("username").lower()
+                return redirect(url_for("profile", username=session["this_user"]))
 
             # Incorrect password was entered
             else:
                 redirect(url_for("login"))
-                
+
         # Incorrect username was entered
         else:
             redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+# ------------------- Profile page (profile/register.html)
+@app.route("/profile/<username>")
+def profile(username):
+    user_info = mongo.db.users.find_one({
+        "username": username
+    })
+    return render_template("profile.html", user=user_info)
 
 
 if __name__ == "__main__":
