@@ -1,4 +1,5 @@
 import os
+import datetime
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -40,7 +41,8 @@ def register():
         # New user will now be in the database
         new_user = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "register_date": datetime.datetime.now().strftime("%B " + "%d " + "%Y")
         }
         mongo.db.users.insert_one(new_user)
 
@@ -98,6 +100,31 @@ def profile(username):
 def logout():
     session.pop("this_user")
     return redirect(url_for("home"))
+
+
+# ------------------- Add recipe page (templates/add_recipe.html)
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    if request.method == "POST":
+        if not session.get("this_user"):
+            return redirect(url_for("error401"))
+
+        # New recipe will now be in the database
+        new_recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("recipe_description"),
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_instructions": request.form.get("recipe_instructions"),
+            "created_by": session["this_user"],
+            "post_date": datetime.datetime.now().strftime("%B " + "%d " + "%Y"),
+            "likes": 0
+        }
+        mongo.db.recipes.insert_one(new_recipe)
+
+        # Taking new user to their Profile page
+        return redirect(url_for("profile", username=session["this_user"]))
+
+    return render_template("add_recipe.html")
 
 
 # ------------------- Error 401 page (templates/error401.html)
