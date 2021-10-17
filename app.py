@@ -85,7 +85,15 @@ def profile(username):
     user_info = mongo.db.users.find_one({
         "username": username
     })
-    return render_template("profile.html", user=user_info)
+    if session["this_user"]:
+        return render_template("profile.html", user=user_info)
+
+
+# ------------------- Logging out
+@app.route("/logout")
+def logout():
+    session.pop("this_user")
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
