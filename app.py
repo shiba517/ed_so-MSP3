@@ -79,12 +79,16 @@ def login():
     return render_template("login.html")
 
 
-# ------------------- Profile page (profile/register.html)
+# ------------------- Profile page (templates/profile.html)
 @app.route("/profile/<username>")
 def profile(username):
+    if not session.get("this_user"):
+        return redirect(url_for("error401"))
+
     user_info = mongo.db.users.find_one({
         "username": username
     })
+
     if session["this_user"]:
         return render_template("profile.html", user=user_info)
 
@@ -94,6 +98,13 @@ def profile(username):
 def logout():
     session.pop("this_user")
     return redirect(url_for("home"))
+
+
+# ------------------- Error 401 page (templates/error401.html)
+@app.route("/error401")
+def error401():
+    flash("You do not have access to this page")
+    return render_template("error401.html")
 
 
 if __name__ == "__main__":
