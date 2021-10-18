@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #EDEAE5;
     background-color: #FEF9C7;
@@ -104,9 +108,8 @@ header .ncc-navbar-dec {
 }
 
 .ncc-homeScreen-p1 .ncc-btn {
-    font-family: 'Rubik', sans-serif;
     min-width: 40%;
-    margin: 0 1rem;
+    /* margin: 0 1rem; */
     color: #EDEAE5;
 }
 
@@ -189,6 +192,21 @@ header .ncc-navbar-dec {
     min-width: 30%
 }
 
-.ncc-padding-forsearch {
-   
+
+/* --------- Footer (base.html) --------- */
+footer {
+    background-color: #9FEDD7;
+    background-color: #026670;
+    padding-bottom: 2rem;
+}
+
+#ncc-footer {
+    margin-top: 10rem;
+    padding-top: 3rem;
+    /* border-top: solid black; */
+}
+
+#ncc-footer li {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
