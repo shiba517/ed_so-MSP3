@@ -3,10 +3,22 @@
 body {
     background-color: #EDEAE5;
     background-color: #FEF9C7;
+    font-family: 'Rubik', sans-serif;
 }
 
 
 /* --------- Universal --------- */
+.ncc-pageTitle-dec {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.testunderline {
+    text-transform: uppercase;
+    padding-bottom: 1.5rem;
+    border-bottom: solid black;
+}
+
 .ncc-modal-decoration {
     background-color: #9FEDD7;
     border: solid black;
@@ -20,16 +32,6 @@ body {
 
 .ncc-inline-block {
     display: inline-block;
-}
-
-.ncc-padding-forsearch {
-    padding: 0.5rem 1rem;
-}
-
-.ncc-padding-forsearch .ncc-btn {
-    min-width: 30%;
-    /* max-width: 40%; */
-    color: #EDEAE5;
 }
 
 .ncc-paddingLeftRight-1rem {
@@ -170,4 +172,23 @@ header .ncc-navbar-dec {
 #delete_message .ncc-btn {
     background-color: #026670;
     color: #EDEAE5;
+}
+
+/* --------- search recipe (all_recipes.html & my_recipes.html) --------- */
+.ncc-searchForm-decoration {
+    background-color: #9FEDD7;
+    background-color: #026670;
+    border: solid black;
+    padding: 0.5rem 1rem;
+}
+
+.ncc-searchForm-decoration .ncc-btn {
+    background-color: #FEF9C7;
+    background-color: #EDEAE5;
+    color: black;
+    min-width: 30%
+}
+
+.ncc-padding-forsearch {
+   
 }
