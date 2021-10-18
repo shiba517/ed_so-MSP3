@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="center ncc-margbot-4">Random recipes</h2>
+
+<div class="container">
+    <div class="row">
+        {% for each_recipe in recipes %}
+        <div class="col s12 m4">
+            <div class="card large hoverable ncc-recipeCard-decoration">
+                <div class="card-image">
+                    <img src="../static/images/karthik-garikapati-oBbTc1VoT-0-unsplash.jpg">
+                    <span class="card-title truncate ncc-recipeCardTitle"><strong>{{ each_recipe.recipe_name}}</strong></span>
+                </div>
+                <div class="card-content">
+                    <div class="center">
+                        <div class="ncc-inline-block ncc-margLeftRight-1rem">
+                            <a href="{{ url_for('like', recipe_id=each_recipe._id) }}"><i class="fas fa-heart small"></i></a>
+                            <p class="center">{{ each_recipe.likes }}</p>
+                        </div>
+                        <div class="ncc-inline-block ncc-margLeftRight-1rem">
+                            <i class="fas fa-clock prefix small"></i>
+                            <p class="center">{{ each_recipe.recipe_duration }}</p>
+                        </div>
+                        <div class="ncc-inline-block ncc-margLeftRight-1rem">
+                            <i class="fas fa-users prefix small"></i>
+                            <p class="center">{{ each_recipe.recipe_duration }}</p>
+                        </div>
+                    </div>                       
+                    <p>{{ each_recipe.recipe_description }}</p>
+                </div>
+                
+                <div class="card-reveal">
+                    <span class="card-title"><strong>{{ each_recipe.recipe_name }}</strong><i class="fas fa-info-circle right"></i></span>
+                    <p>{{ each_recipe.recipe_description }}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('chosen_recipe', recipe_id=each_recipe._id) }}">Lets make this</a>
+                    <i class="fas fa-info-circle activator small right"></i>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

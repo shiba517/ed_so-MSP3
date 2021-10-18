@@ -1,6 +1,7 @@
 import os
 import datetime
 import re
+import random
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -199,6 +200,36 @@ def like(recipe_id):
         "likes": 1
     }})
     return redirect(url_for("all_recipes"))
+
+
+@app.route("/random_recipes")
+def random_recipes():
+    if not session.get("this_user"):
+        return redirect(url_for("error404"))
+
+    all_recipes = list(mongo.db.recipes.find())
+
+    all_recipes_copy = all_recipes
+    random_recipes = []
+    max_cards = 3
+    current_card = 0
+    current_user = session["this_user"]
+
+    if len(all_recipes) < max_cards:
+        while current_card < len(all_recipes):
+            random_number = random.randrange(0, len(all_recipes_copy))
+            random_recipes.append(all_recipes_copy[random_number])
+            all_recipes_copy.pop(random_number)
+            current_card += 1
+    else:
+        while current_card < max_cards:
+            random_number = random.randrange(0, len(all_recipes_copy))
+            random_recipes.append(all_recipes_copy[random_number])
+            all_recipes_copy.pop(random_number)
+            current_card += 1
+
+    return render_template("random_recipes.html", recipes=random_recipes)
+
 
 
 # ------------------- Error 401 page (templates/error401.html)
