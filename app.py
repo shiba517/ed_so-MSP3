@@ -156,6 +156,14 @@ def chosen_recipe(recipe_id):
     return render_template("chosen_recipe.html", recipe=this_recipe, ingredients=recipe_ingredients_into_list, instructions=recipe_instructions_into_list)
 
 
+# ------------------- My recipes page (templates/my_recipes.html)
+@app.route("/my_recipes")
+def all_recipes():
+    all_recipes = mongo.db.recipes.find()
+
+    return render_template("my_recipes.html", recipes=all_recipes)
+
+
 # ------------------- Error 401 page (templates/error401.html)
 @app.route("/error401")
 def error401():
