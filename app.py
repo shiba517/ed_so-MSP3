@@ -127,7 +127,7 @@ def add_recipe():
         # Taking new user to their Profile page
         return redirect(url_for("profile", username=session["this_user"]))
 
-    return render_template("all_recipes.html")
+    return render_template("add_recipe.html")
 
 
 @app.route("/all_recipes")
@@ -191,6 +191,14 @@ def edit_recipe(recipe_id):
     })
 
     return render_template("edit_recipe.html", recipe=this_recipe)
+
+
+@app.route("/like/<recipe_id>")
+def like(recipe_id):
+    mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$inc": {
+        "likes": 1
+    }})
+    return redirect(url_for("all_recipes"))
 
 
 # ------------------- Error 401 page (templates/error401.html)

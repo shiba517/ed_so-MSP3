@@ -15,7 +15,7 @@
                 <div class="card-content">
                     <div class="center">
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
-                            <i class="fas fa-heart small"></i>
+                            <a href="{{ url_for('like', recipe_id=each_recipe._id) }}"><i class="fas fa-heart small"></i></a>
                             <p class="center">{{ each_recipe.likes }}</p>
                         </div>
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
