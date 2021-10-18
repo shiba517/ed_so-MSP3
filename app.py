@@ -231,6 +231,14 @@ def random_recipes():
     return render_template("random_recipes.html", recipes=random_recipes)
 
 
+# ------------------- Search (templates/all_recipe.html, my_recipes.html)
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    find_this = request.form.get("query")
+    all_recipes = list(mongo.db.recipes.find({"$text": {"$search": find_this}}))
+
+    return render_template("all_recipes.html", recipes=all_recipes)
+
 
 # ------------------- Error 401 page (templates/error401.html)
 @app.route("/error401")

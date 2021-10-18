@@ -22,6 +22,16 @@ body {
     display: inline-block;
 }
 
+.ncc-padding-forsearch {
+    padding: 0.5rem 1rem;
+}
+
+.ncc-padding-forsearch .ncc-btn {
+    min-width: 30%;
+    /* max-width: 40%; */
+    color: #EDEAE5;
+}
+
 .ncc-paddingLeftRight-1rem {
     padding: 0 1rem
 }

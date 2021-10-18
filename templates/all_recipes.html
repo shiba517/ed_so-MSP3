@@ -5,6 +5,21 @@
 
 <div class="container">
     <div class="row">
+        <form class="s10 offset-s1 ncc-form-decoration ncc-padding-forsearch" method="POST" action="{{ url_for('search') }}">
+            <div class="input-field">
+                <input type="text" name="query" id="query" class="validate" required>
+                <label for="query">Search</label>
+            </div>
+            <button type="submit" class="btn-flat btn-small ncc-btn">
+                Search
+            </button>
+            <a href="{{ url_for('all_recipes') }}" class="btn-flat btn-small ncc-btn">reset</a>
+        </form>
+        
+        <p>{{ search_message }}</p>
+    </div>
+
+    <div class="row">
         {% for each_recipe in recipes %}
         <div class="col s12 m4">
             <div class="card large hoverable ncc-recipeCard-decoration">
@@ -20,11 +35,11 @@
                         </div>
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
                             <i class="fas fa-clock prefix small"></i>
-                            <p class="center">{{ each_recipe.recipe_duration }}</p>
+                            <p class="center">{{ each_recipe.recipe_duration }}m</p>
                         </div>
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
                             <i class="fas fa-users prefix small"></i>
-                            <p class="center">{{ each_recipe.recipe_duration }}</p>
+                            <p class="center">{{ each_recipe.recipe_servings }}</p>
                         </div>
                     </div>                       
                     <p>{{ each_recipe.recipe_description }}</p>
