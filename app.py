@@ -164,6 +164,14 @@ def my_recipes():
     return render_template("my_recipes.html", recipes=all_recipes)
 
 
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove(
+        {"_id": ObjectId(recipe_id)}
+    )
+    return redirect(url_for("all_recipes"))
+
+
 # ------------------- Error 401 page (templates/error401.html)
 @app.route("/error401")
 def error401():
