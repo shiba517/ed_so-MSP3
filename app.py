@@ -158,7 +158,7 @@ def chosen_recipe(recipe_id):
 
 # ------------------- My recipes page (templates/my_recipes.html)
 @app.route("/my_recipes")
-def all_recipes():
+def my_recipes():
     all_recipes = mongo.db.recipes.find()
 
     return render_template("my_recipes.html", recipes=all_recipes)

@@ -10,11 +10,15 @@
         <div class="col s12 m4">
             <div class="card large ncc-recipeCard-decoration">
                 <div class="card-image">
-                    <img src="../static/images/karthik-garikapati-oBbTc1VoT-0-unsplash.jpg">
+                    <img class="activator" src="../static/images/karthik-garikapati-oBbTc1VoT-0-unsplash.jpg">
                 </div>
                 <div class="card-content">
-                    <span class="card-title"><strong>{{ each_recipe.recipe_name }}</strong></span>
-                    <p>{{ each_recipe.recipe_name }}</p>
+                    <span class="card-title "><strong>{{ each_recipe.recipe_name }}</strong><i class="fas fa-info-circle activator right"></i></span></i>
+                    <p>{{ each_recipe.recipe_description }}</p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title"><strong>{{ each_recipe.recipe_name }}</strong><i class="fas fa-info-circle right"></i></span>
+                    <p>{{ each_recipe.recipe_description }}</p>
                 </div>
                 <div class="card-action">
                     <a href="{{ url_for('chosen_recipe', recipe_id=each_recipe._id) }}">Lets make this</a>
