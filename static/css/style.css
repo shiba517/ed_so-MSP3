@@ -7,6 +7,13 @@ body {
 
 
 /* --------- Universal --------- */
+.ncc-modal-decoration {
+    background-color: #9FEDD7;
+    border: solid black;
+    padding: 2rem;
+    width: 25%;
+}
+
 .ncc-btn {
     background-color: #026670;
 }
@@ -29,6 +36,10 @@ body {
 
 .ncc-margbot-4 {
     margin-bottom: 4rem;
+}
+
+.ncc-margLeftRight-1rem {
+    margin: 1rem
 }
 
 .ncc-vw100 {
@@ -116,12 +127,19 @@ header .ncc-navbar-dec {
 }
 
 /* --------- All recipes (all_recipes.html) --------- */
-
 .ncc-recipeCard-decoration {
     border: none;
     border: solid black;
 }
 
+.ncc-recipeCardTitle {
+    background-color: black;
+    /* opacity: 0.5; */
+    width: 100%;
+}
+
+
+/* --------- Chosen recipe (chosen_recipe.html) --------- */
 #ncc-id-chosenCard {
     /* background-color: #026670; */
     
@@ -137,4 +155,9 @@ header .ncc-navbar-dec {
 
 #ncc-id-chosenCard img {
     width: 100%;
+}
+
+#delete_message .ncc-btn {
+    background-color: #026670;
+    color: #EDEAE5;
 }

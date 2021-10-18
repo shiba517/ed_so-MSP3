@@ -127,7 +127,7 @@ def add_recipe():
         # Taking new user to their Profile page
         return redirect(url_for("profile", username=session["this_user"]))
 
-    return render_template("add_recipe.html")
+    return render_template("all_recipes.html")
 
 
 @app.route("/all_recipes")
@@ -169,7 +169,28 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove(
         {"_id": ObjectId(recipe_id)}
     )
-    return redirect(url_for("all_recipes"))
+    return redirect(url_for("my_recipes"))
+
+
+# ------------------- Edit recipe page (templates/edit_recipe.html)
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": {
+            "recipe_name": request.form.get("recipe_name"), 
+            "recipe_description": request.form.get("recipe_description"),
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_instructions": request.form.get("recipe_instructions"),
+            "recipe_servings": request.form.get("recipe_servings"),
+            "recipe_duration": request.form.get("recipe_duration")
+            }})
+        return redirect(url_for("my_recipes"))
+
+    this_recipe = mongo.db.recipes.find_one({
+        "_id": ObjectId(recipe_id)
+    })
+
+    return render_template("edit_recipe.html", recipe=this_recipe)
 
 
 # ------------------- Error 401 page (templates/error401.html)

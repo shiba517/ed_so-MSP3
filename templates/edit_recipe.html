@@ -6,12 +6,12 @@
 <div class="container ncc-registerArea">
     <div class="row">
         <!-- The add recipe form -->
-        <form class="col s12 m8 offset-m2 ncc-form-decoration" method="POST" action="{{ url_for('add_recipe') }}">
+        <form class="col s12 m8 offset-m2 ncc-form-decoration" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
             <div class="row">
                 <!-- name of recipe -->
                 <div class="input-field center col s12">
                     <i class="fas fa-user prefix"></i>
-                    <input placeholder="" id="recipe_name" name="recipe_name" type="text" minlength="5"
+                    <input placeholder="" id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name }}" type="text" minlength="5"
                     maxlength="100" class="validate" required>
                     <label for="recipe_name" class="input-field">Recipe name</label>
                 </div>
@@ -20,6 +20,7 @@
                     <i class="fas fa-book prefix"></i>
                     <textarea placeholder="" id="recipe_description" name="recipe_description" type="text" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required>
+                        {{- recipe.recipe_description -}}
                     </textarea>
                     <label for="recipe_description" class="active">Recipe description</label>
                 </div>
@@ -27,6 +28,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-lemon prefix"></i>
                     <textarea placeholder="" id="recipe_ingredients" name="recipe_ingredients" type="text" minlength="5" class="materialize-textarea validate" required>
+                        {{- recipe.recipe_ingredients -}}
                     </textarea>
                     <label for="recipe_ingredients" class="active">Recipe ingredients (Please enter an * before each ingredient)</label>
                 </div>
@@ -34,33 +36,32 @@
                 <div class="input-field col s12">
                     <i class="fas fa-blender prefix"></i>
                     <textarea placeholder="" id="recipe_instructions" name="recipe_instructions" type="text" minlength="5" class="materialize-textarea validate" required>
+                        {{- recipe.recipe_instructions -}}
                     </textarea>
                     <label for="recipe_instructions" class="active">Recipe instructions (Please enter an * before each instruction)</label>
                 </div>
                 <!-- Additional information -->
                 <div class="input-field col s12 m4">
                     <i class="fas fa-users prefix"></i>
-                    <input placeholder="" id="recipe_servings" name="recipe_servings" type="text" minlength="1"
+                    <input placeholder="" id="recipe_servings" name="recipe_servings" value="{{ recipe.recipe_servings }}" type="text" minlength="1"
                         class="materialize-textarea validate" pattern="^[0-9]{1,2}$" required>
                     <label for="recipe_servings" class="active">Recipe servings</label>
                 </div>
                 <div class="input-field col s12 m4">
                     <i class="fas fa-clock prefix"></i>
-                    <input placeholder="" id="recipe_duration" name="recipe_duration" type="text" minlength="1"
+                    <input placeholder="" id="recipe_duration" name="recipe_duration" value="{{ recipe.recipe_duration }}" type="text" minlength="1"
                         class="materialize-textarea validate" pattern="^[0-9]{1,4}$" required>
                     <label for="recipe_duration" class="active">Recipe duration (in minutes)</label>
                 </div>
             <div class="row">
                 <div class="col s12 center">
                     <button class="btn-flat btn-large ncc-btn" type="submit">
-                        <a class="">share</a>
+                        <a class="">edit</a>
                     </button>
                 </div>
             </div>
-            </div>
         </form>
-    </div> 
-         
+    </div>          
 </div>
 
 {% endblock %}
