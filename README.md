@@ -19,16 +19,16 @@ Caltech have asked me to create an app/website that will help people make decisi
     * As a first time visitor, I should be acknowledged of any dietary elements to the recipe such as meat-free 
 * Returning visitor goals 
     * As a returning visitor, I want to be able to know which recipes I have made 
-    * Be given suggestions of which recipes to cook 
-    * Be able to add to the host of recipes with my own recipes 
-    * Able to edit and delete my entries 
-    * Search for recipes and even the poster/other users 
+    * As a returning visitor, I want to be given suggestions of which recipes to cook 
+    * As a returning visitor, I want to be able to add to the host of recipes with my own recipes 
+    * As a returning visitor, I want to be able to edit and delete my entries 
+    * As a returning visitor, I want to search for recipes and even the poster/other users 
 * Frequent visitor goals 
-    * Save recipes for later viewings 
-    * See more and more recipes added to the database 
+    * As a frequent visitor, I want to save recipes for later viewings 
+    * As a frequent visitor, I want to see more and more recipes added to the database 
 * Admin goals 
-    * Maintain the website 
-    * To have the option to delete certain recipes and members 
+    * As an admin, I want to maintain the website 
+    * As an admin, I want to to have the option to delete certain recipes and members 
 
 
 ## THE 5 PLANES
@@ -121,6 +121,7 @@ Font:
 * To be able to display recipes in specefic orders such as by name, name of poster etc
 * Adding a favourite/save for later section
 
+
 ## TECHNOLOGIES USED
 * HTML
 * CSS
@@ -135,23 +136,143 @@ Font:
 * W3C CSS Validator - detects any errors in .css files
 
 ## TESTING
-* first time visitor goals:
-    * As a first time visitor, I want to be able to easily find and see a host of recipes 
-    * As a first time visitor, visuals and design of the website must entice me to explore the website 
-    * As a first time visitor, I want to see details of the selected recipe in an easy to view layout 
-    * As a first time visitor, I should be acknowledged of any dietary elements to the recipe such as meat-free 
-* Returning visitor goals 
-    * As a returning visitor, I want to be able to know which recipes I have made 
-    * Be given suggestions of which recipes to cook 
-    * Be able to add to the host of recipes with my own recipes 
-    * Able to edit and delete my entries 
-    * Search for recipes and even the poster/other users 
-* Frequent visitor goals 
-    * Save recipes for later viewings 
-    * See more and more recipes added to the database 
-* Admin goals 
-    * Maintain the website 
-    * To have the option to delete certain recipes and members 
+### User stories testing
+AIM | Achieved?
+--- | --- |
+As a first time visitor, I want to be able to easily find and see a host of recipes | yes
+As a first time visitor, visuals and design of the website must entice me to explore the website | yes 
+As a first time visitor, I want to see details of the selected recipe in an easy to view layout | yes 
+As a first time visitor, I should be acknowledged of any dietary elements to the recipe such as meat-free | not yet 
+As a returning visitor, I want to be able to know which recipes I have made  | yes 
+As a returning visitor, I want to be given suggestions of which recipes to cook  | yes 
+As a returning visitor, I want to be able to add to the host of recipes with my own recipes  | yes 
+As a returning visitor, I want to be able to edit and delete my entries  | yes 
+As a returning visitor, I want to search for recipes and even the poster/other users  | yes 
+As a frequent visitor, I want to save recipes for later viewings  | not yet
+As a frequent visitor, I want to see more and more recipes added to the database  | yes 
+As an admin, I want to maintain the website  | not yet
+As an admin, I want to to have the option to delete certain recipes and members | not yet 
+
+### CRUD (create, read, update, and delete) testing
+AIM | Achieved?
+--- | --- |
+Can a user create a recipe? | yes 
+Can a user read(view) a recipe? | yes 
+Can a user update a recipe? | yes 
+Can a user delete a recipe? | yes 
+
+### Home page testing (home.html)
+AIM | Achieved?
+--- | --- |
+Any user clicking on 'more' button will lead to a smoothe scrolldown to the 'how it works' section of the homepage
+Any user can click on the 'register' button
+Any user clicking on either 'register' buttons will lead to the register.html
+Any user clicking on 'login' button will lead to login.html
+'register' button will not appear when a user is logged in
+
+### Navbar testing
+AIM | Achieved?
+--- | --- |
+Clicking on the logo will lead user to the home.html
+When user is not logged in, only link that will appear will be 'All recipes', 'Login', and 'Register'
+When user is logged in, the links on show will be 'All recipes', 'Random', 'Profile', and 'Logout'
+
+### Register testing
+AIM | Achieved?
+--- | --- |
+'username' will only take in aplabetical characters(upper and lower case) and numbers
+'username' will only take upto 20 characters
+'username' will take a minimum of 5 characters
+'password' will only take in aplabetical characters(upper and lower case) and numbers
+'password' will take a minimum of 5 characters
+'password' will only take upto 20 characters
+Clicking on 'login from here' will take the user to the login.html
+Clicking on 'sign up' will update the intended mongo database (mongo.db.users)
+Clicking on 'sing up' will also taek the user to their profile page (profile.html)
+
+### Login testing
+AIM | Achieved?
+--- | --- |
+'username' will only take in aplabetical characters(upper and lower case) and numbers
+'username' will only take upto 20 characters
+'username' will take a minimum of 5 characters
+'password' will only take in aplabetical characters(upper and lower case) and numbers
+'password' will take a minimum of 5 characters
+'password' will only take upto 20 characters
+Clicking on 'register from here' will take the user to the login.html
+Clicking on 'login' will also take the user to their profile page (profile.html) if successful
+If clicking on 'login' and app.py did not find a match in the details entered, a flash message of "Username and/or password is incorrect" will appear
+If clicking on 'login' and app.py did not find a match in the details entered, details entered will be cleared from the form
+
+### Profile testing
+AIM | Achieved?
+--- | --- |
+Username of the user will appear near the top of the page
+Buttons of 'Add', 'Mine', 'Random' and 'Bye' will appear on screen
+Clicking on 'add' will take user to the add_recipe.html
+Clicking on 'mine' will take user to the my_recipes.html
+Clicking on 'random' will take user to the random_recipes.html
+Clicking on 'bye' will lead to a modal appearing
+The modal will ask 'Delete?' with a follow message 'Clicking yes will permanently delete your account and all your recipes'
+Clicking on 'no' will remove the modal
+Clicking on 'yes' will delete the user from the intended monog database (mongo.db.users)
+clicking on 'yes' will also lead the user back to the home.html
+
+### All recipes testing
+AIM | Achieved?
+--- | --- |
+A host of cards should appear containing a picture, title, information regarding likes, servings, and cooking duration from the mongo database (mongo.db.recipes)
+Quantity of cards on show will match the quantity of entries in the mongo database that it is coming from
+Clicking on the 'i' icon should lead to another card sliding up contained the name of the recipe and the description
+Clicking on the 'like' icon (heart) will increment the number below it by 1
+Clciking on 'lets make this' will lead teh user to chosen_recipe.html
+If user is not logged in, 'like' icon will not be functional
+If user is not logged in, 'lets make this' link will not be visible
+
+### Chosen recipes
+AIM | Achieved?
+--- | --- |
+Image of recipe should be near the upper left of the scren
+Recipe name, username, creation date, likes, servings, cooking curation, and recipe description should appear near the upper right of the screen
+Recipe ingredients list should appear near the lower left of the screen
+Recipe instructions list should appear near the lower right of the screen
+Recipe ingredints will appear in an unordered list format
+Recipe instructions will appear in an ordered list format
+Bottom corner of the screen should have a 'plus' icon if the recipes was posted by the user logged in
+Clicking on the 'plus' icon will lead to the icons of 'delete' and 'edit' to appear
+Clicking on the 'edit' icon will lead user to the edit_recipe.html
+Clicking on 'delete' icon will lead to a modal appearing
+The modal will ask 'Delete?' with a follow message 'Clicking yes will permanently delete this recipe'
+Clicking on 'no' will remove the modal
+Clicking on 'yes' will delete the recipe from the intended monog database (mongo.db.recipes)
+clicking on 'yes' will also lead the user back to the all_recipes.html
+
+### Edit recipe
+AIM | Achieved?
+--- | --- |
+Each field on the form should match the information on the mongo databse of the recipe chosen to edit
+Clicking on any field should give the user the ability to change the inputs
+Clicking on 'edit' will update the informatino of that recipe in the mongo database
+Clicking on 'edit' will also then lead the user to the all_recipes.html
+Changed information of edited recipe should be visible in ohter pages the recipe appears in (all_recipes.html, chosen_recipes.html, and my_recipes.html)
+
+### Add recipe
+AIM | Achieved?
+--- | --- |
+'recipe name' field should take in any characters
+'recipe name' will take upto 100 characters in length
+'recipe description' field will take in any characters
+'recipe description' field size should accomodate the entered information
+'recipe ingredients' field will take in any characters
+'recipe ingredients' field size should accomodate the entered information
+'recipe instructions' field will take in any characters
+'recipe instructions' field size should accomodate the entered information
+'servings' will only take in numbers
+'servings' will take in a number of maximum of 2 digits long
+'duration' will only take in numbers
+'duration' will take in a number of maximum of 4 digits long
+Clicking on 'share' will update the relevant mongo database
+Clicking on 'share' will also lead teh user to the all_recipes.html
 
 ## DEPLOYMENT
 ### Github pages
