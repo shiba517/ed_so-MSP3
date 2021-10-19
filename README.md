@@ -115,3 +115,77 @@ Font:
 * Remove link will remove the user from the database and all their recipes that they have posted. It will ask via  a modal whether they are sure they want this to happen. 
 * Edit Recipe page (edit_recipe.html) will let the user edit their own recipes. This will button will only appear on the users recipes when on the selected recipes ‘chosen recipe’ page 
 * Delete button will let the user delete their chosen recipe. It will ask via a modal whether they are sure they want this to happen. 
+
+### Future features 
+* A logo that is not a icon from fontawsome.com
+* To be able to display recipes in specefic orders such as by name, name of poster etc
+* Adding a favourite/save for later section
+
+## TECHNOLOGIES USED
+* HTML
+* CSS
+* Materialize - a .css library which also includes use of .js
+* Font awesome - a catalogue of icons for .html files
+* Jquery - A convenient JS library
+* Github - Save and deploy projects useing this
+* Git pod - Platform to write code
+* Balsamiq - software for use fo making skeleton sketches
+* Lucid chart - website where you can make flowcharts
+* W3C Markup Validator - detects any errors in .html files
+* W3C CSS Validator - detects any errors in .css files
+
+## TESTING
+* first time visitor goals:
+    * As a first time visitor, I want to be able to easily find and see a host of recipes 
+    * As a first time visitor, visuals and design of the website must entice me to explore the website 
+    * As a first time visitor, I want to see details of the selected recipe in an easy to view layout 
+    * As a first time visitor, I should be acknowledged of any dietary elements to the recipe such as meat-free 
+* Returning visitor goals 
+    * As a returning visitor, I want to be able to know which recipes I have made 
+    * Be given suggestions of which recipes to cook 
+    * Be able to add to the host of recipes with my own recipes 
+    * Able to edit and delete my entries 
+    * Search for recipes and even the poster/other users 
+* Frequent visitor goals 
+    * Save recipes for later viewings 
+    * See more and more recipes added to the database 
+* Admin goals 
+    * Maintain the website 
+    * To have the option to delete certain recipes and members 
+
+## DEPLOYMENT
+### Github pages
+The website was deployed onto GitHub via the following steps: 
+1. Logging into my GitHub account and creating a new repository
+2. Under the subheading ‘Repository template’, I chose the template given to me by Code Institute from the drop-down menu
+3. I named my repository under the subheading ‘Repository name’ and then clicked on the green button named ‘Create repository’.
+4. Once the repository was created, I was lead to my repository page. From here, I clicked on the ‘Settings’ button near the top of the page
+5. Scroll down to the ‘GitHub Pages’ section and click on the text, ‘Check it out here!’, which will be in blue
+6. Under the subheading ‘Source’, click on its only drop-down menu and select ‘Master’ and then click on the button ‘Save’
+7. The repository webpage will now have been created and the link will now be shown to you for your use
+
+### Making A Local Clone
+You may want to have access via a copy of the repository on your own device. There are three ways to do this: 
+* Method 1
+1. Login to your GitHub account and open up the repository you would like to copy 
+2. Click on the button with a drop-down menu named ‘Code’ which will be placed next to the green ‘Gitpod’ button
+3. You will then have the option to download it on to your system via the ‘Download ZIP’ option
+
+* Method 2 
+1. Open up your preferred IDE and open up the folder where you would the repository to be copied/cloned
+2. In the terminal, type in ‘git clone’ ; do not press enter or anything else
+3. Now login to your GitHub account and open up the repository you would like to copy
+4. Click on the ‘Code’ button again and copy the text given under the subheading ‘HTTPS’. A button next to this text gives you an easier way of copying the text
+5. Back to your IDE terminal, after the ‘git clone’, press the spacebar button and paste in the link you copied from the repository. Your entry in the terminal should look something like this: ‘gti clone https://github.com/shiba517/MSP2-The-Memory-Game.git’. Then press enter
+6. Your terminal will let you know the repository has been cloned and saved to your preferred destination and will be evident when viewing files and folders from your preferred destination
+
+## CREDITS
+### Content
+* Inpsiration for the fictional story of the aim of the making of the website, written in the Overview section, was inspired by an article found on caltech.edu - [link](https://www.caltech.edu/about/news/scientists-uncover-why-you-cant-decide-what-order-lunch-83881)
+* All written content on the website was created by me
+
+### Media
+* Colour scheme (#50) by **Five Hundred** - https://visme.co/blog/website-color-schemes/
+* Typography for headings by **Johan Aukerlund** - https://fonts.google.com/specimen/Rubik#standard-styles 
+* Typography for non-headings by **Julieta Ulanovsky, Sol Matas, Juan Pablo del Peral, Jacques Le Bailly** - https://fonts.google.com/specimen/Montserrat?query=montserrat
+* Illustration by **Freepic.com** via **Flaticon** - https://www.flaticon.com/authors/kawaii/lineal-color
