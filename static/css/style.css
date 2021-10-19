@@ -30,6 +30,12 @@ body {
     width: 25%;
 }
 
+@media (max-width: 600px) {
+    .ncc-modal-decoration {
+        width: 80%;
+    }
+}
+
 .ncc-btn {
     background-color: #026670;
     font-family: 'Rubik', sans-serif;
@@ -192,12 +198,13 @@ header .ncc-navbar-dec {
 #delete_message .ncc-btn {
     background-color: #026670;
     color: #EDEAE5;
+    min-width: 40%
 }
 
 /* --------- search recipe (all_recipes.html & my_recipes.html) --------- */
 .ncc-searchForm-decoration {
     background-color: #9FEDD7;
-    background-color: #026670;
+    /* background-color: #026670; */
     border: solid black;
     padding: 0.5rem 1rem;
 }
@@ -205,6 +212,7 @@ header .ncc-navbar-dec {
 .ncc-searchForm-decoration .ncc-btn {
     background-color: #FEF9C7;
     background-color: #EDEAE5;
+    background-color: #026670;
     color: black;
     min-width: 30%
 }
