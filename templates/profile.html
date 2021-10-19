@@ -32,7 +32,17 @@
         <div class="row">
             <div class="col s12 center">
                 <p>Delete your account?</p>
-                <a href="{{ url_for('remove_account', user_id=user._id) }}" class="btn-large ncc-btn">bye</a>
+                <a href="#delete_message" class="btn-large ncc-btn modal-trigger">bye</a>
+
+                <!-- Modal for deleting a recipe -->
+                <div id="delete_message" class="modal ncc-modal-decoration">
+                    <div class="modal-conent center-align">
+                        <h4>Delete?</h4>
+                        <p>Clicking yes will permanently delete your account and all your recipes</p>
+                        <a href="{{ url_for('remove_account', user_id=user._id) }}" class="modal-close btn-small btn-flat center-align ncc-btn">Yes</a>
+                        <a class="modal-close btn-small btn-flat ncc-btn">No</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

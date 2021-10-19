@@ -107,9 +107,12 @@ def logout():
 # ------------------- Add recipe page (templates/add_recipe.html)
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    if not session.get("this_user"):
+        return redirect(url_for("error401"))
+
     if request.method == "POST":
         if not session.get("this_user"):
-            return redirect(url_for("error401"))
+            return redirect(url_for("error404"))
 
         # New recipe will now be in the database
         new_recipe = {
@@ -160,6 +163,9 @@ def chosen_recipe(recipe_id):
 # ------------------- My recipes page (templates/my_recipes.html)
 @app.route("/my_recipes")
 def my_recipes():
+    if not session.get("this_user"):
+        return redirect(url_for("error401"))
+
     all_recipes = mongo.db.recipes.find()
 
     return render_template("my_recipes.html", recipes=all_recipes)
@@ -167,6 +173,9 @@ def my_recipes():
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    if not session.get("this_user"):
+        return redirect(url_for("error401"))
+
     mongo.db.recipes.remove(
         {"_id": ObjectId(recipe_id)}
     )
@@ -176,7 +185,13 @@ def delete_recipe(recipe_id):
 # ------------------- Edit recipe page (templates/edit_recipe.html)
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if not session.get("this_user"):
+        return redirect(url_for("error401"))
+
     if request.method == "POST":
+        if not session.get("this_user"):
+            return redirect(url_for("error404"))
+
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": {
             "recipe_name": request.form.get("recipe_name"), 
             "recipe_description": request.form.get("recipe_description"),
@@ -236,6 +251,8 @@ def random_recipes():
 def search():
     find_this = request.form.get("query")
     all_recipes = list(mongo.db.recipes.find({"$text": {"$search": find_this}}))
+    if not session.get("this_user"):
+        return redirect(url_for("error404"))
 
     return render_template("all_recipes.html", recipes=all_recipes)
 
@@ -244,7 +261,7 @@ def search():
 @app.route("/remove_account/<user_id>")
 def remove_account(user_id):
     if not session.get("this_user"):
-        return redirect(url_for("error401"))
+        return redirect(url_for("error404"))
 
     mongo.db.recipes.remove(
         {"created_by": session["this_user"]}
@@ -263,6 +280,13 @@ def remove_account(user_id):
 def error401():
     flash("You do not have access to this page")
     return render_template("error401.html")
+
+
+# ------------------- Error 404 page (templates/error401.html)
+@app.route("/error404")
+def error404():
+    flash("Page not found")
+    return render_template("error404.html")
 
 
 if __name__ == "__main__":
