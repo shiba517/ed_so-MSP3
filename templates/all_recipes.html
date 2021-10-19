@@ -36,7 +36,13 @@
                 <div class="card-content">
                     <div class="center">
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
-                            <a href="{{ url_for('like', recipe_id=each_recipe._id) }}"><i class="fas fa-heart small"></i></a>
+                            {% if session.this_user %}
+                            <a href="{{ url_for('like', recipe_id=each_recipe._id) }}">
+                                <i class="fas fa-heart small"></i>
+                            </a>
+                            {% else %}
+                            <i class="fas fa-heart small"></i>
+                            {% endif %}
                             <p class="center">{{ each_recipe.likes }}</p>
                         </div>
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
@@ -51,14 +57,14 @@
                 </div>
                 
                 <div class="card-reveal">
-                    <span class="card-title"><strong>{{ each_recipe.recipe_name }}</strong><i class="fas fa-info-circle right"></i></span>
+                    <span class="card-title "><strong>{{ each_recipe.recipe_name }}</strong><i class="fas fa-info-circle right ncc-icon-dec"></i></span>
                     <p>{{ each_recipe.recipe_description }}</p>
                 </div>
                 <div class="card-action">
                     {% if session.this_user %}
                     <a href="{{ url_for('chosen_recipe', recipe_id=each_recipe._id) }}">Lets make this</a>
                     {% endif %}
-                    <i class="fas fa-info-circle activator small right"></i>
+                    <i class="fas fa-info-circle activator small right ncc-icon-dec"></i>
                 </div>
             </div>
         </div>

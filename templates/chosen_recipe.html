@@ -11,17 +11,18 @@
                             <img src="../static/images/karthik-garikapati-oBbTc1VoT-0-unsplash.jpg" alt="">
                         </div>
                         <div class="col s12 m6 ">
+                            {% if session.this_user == recipe.created_by %}
                             <div class="fixed-action-btn">
                                 <a class="btn-floating btn-large green">
                                     <i class="large fas fa-plus"></i>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="#delete_message" class="btn-floating green darken-4 modal-trigger">
-                                            <i class="fas fa-trash"></i>
+                                        <a href="#delete_message" class="btn-floating red darken-4 modal-trigger">
+                                            <i class="fas fa-trash small"></i>
                                         </a>
-                                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating green darken-4">
-                                            <i class="fas fa-edit"></i>
+                                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-floating purple darken-4">
+                                            <i class="fas fa-edit small"></i>
                                         </a>
 
                                         <!-- Modal for deleting a recipe -->
@@ -36,6 +37,7 @@
                                     </li>
                                 </ul>
                             </div>
+                            {% endif %}
                             <h2>{{ recipe.recipe_name }}</h2>
                             <i>created by {{ recipe.created_by }} on {{ recipe.post_date }}</i>
                             <br>
