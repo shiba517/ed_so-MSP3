@@ -11,7 +11,7 @@
                             <img src="../static/images/karthik-garikapati-oBbTc1VoT-0-unsplash.jpg" alt="">
                         </div>
                         <div class="col s12 m6 ">
-                            {% if session.this_user == recipe.created_by %}
+                            {% if session.this_user == recipe.created_by or session.this_user == "admin" %}
                             <div class="fixed-action-btn">
                                 <a class="btn-floating btn-large green">
                                     <i class="large fas fa-plus"></i>
