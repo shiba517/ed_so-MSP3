@@ -69,6 +69,15 @@ body {
     background-color: blue;
 }
 
+#ncc-yourInfoArea .card-action .ncc-blackFont {
+    color: black;
+}
+
+#ncc-id-recipeCard .card-action .ncc-blackFont {
+    color: #026670;
+    color: black;
+}
+
 
 /* --------- Navigation bar (base.html) --------- */
 header .ncc-navbar-dec {
@@ -80,6 +89,8 @@ header .ncc-navbar-dec {
     height: 85vh;
 }
 
+
+/* --------- Home page (home.html) --------- */
 .ncc-brandCard {
     /* background-color: #9FEDD7; */
     /* background-color: #FCE181; */
@@ -227,6 +238,12 @@ footer {
 /* --------- profile (profile.html) --------- */
 #ncc-yourInfoArea .ncc-btn {
     min-width: 10rem;
+}
+
+@media (max-width: 600px) {
+    #ncc-yourInfoArea .col:first-child {
+        margin-bottom: 2rem;
+    }
 }
 
 .ncc-icon-dec {

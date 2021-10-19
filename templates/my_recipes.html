@@ -25,7 +25,7 @@
         <p>{{ search_message }}</p>
     </div>
     
-    <div class="row">
+    <div id="ncc-id-recipeCard" class="row">
     {% for each_recipe in recipes %}
         {% if each_recipe.created_by == session.this_user %}
         <div class="col s12 m4">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="card-action">
                     {% if session.this_user %}
-                    <a href="{{ url_for('chosen_recipe', recipe_id=each_recipe._id) }}">Lets make this</a>
+                    <a href="{{ url_for('chosen_recipe', recipe_id=each_recipe._id) }}" class="ncc-blackFont">Lets make this</a>
                     {% endif %}
                     <i class="fas fa-info-circle activator small right ncc-icon-dec"></i>
                 </div>

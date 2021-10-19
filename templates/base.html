@@ -27,9 +27,9 @@
                         <li><a href="{{ url_for('home') }}">Home</a></li>
                         <li><a href="{{ url_for('all_recipes') }}">All recipes</a></li>
                         {% if session.this_user %}
-                        <li><a href="{{ url_for('random_recipes') }}">Random</a></li>
-                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                        <li class="ncc-randomLinkHighlight"><a href="{{ url_for('random_recipes') }}">Random</a></li>
                         <li><a href="{{ url_for('profile', username=session.this_user) }}">Profile</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
                         {% else %}
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                         <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -44,8 +44,8 @@
             <li><a href="{{ url_for('all_recipes') }}">All recipes</a></li>
             {% if session.this_user %}
             <li><a href="{{ url_for('random_recipes') }}">Random</a></li>
-            <li><a href="{{ url_for('logout') }}">Logout</a></li>
             <li><a href="{{ url_for('profile', username=session.this_user) }}">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
             {% else %}
             <li><a href="{{ url_for('register') }}">Register</a></li>
             <li><a href="{{ url_for('login') }}">Login</a></li>

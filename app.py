@@ -126,7 +126,8 @@ def add_recipe():
             "post_date": datetime.datetime.now().strftime("%B " + "%d " + "%Y"),
             "likes": 0,
             "recipe_servings": request.form.get("recipe_servings"),
-            "recipe_duration": request.form.get("recipe_duration")
+            "recipe_duration": request.form.get("recipe_duration"),
+            "recipe_image_url": request.form.get("recipe_image_url")
         }
         mongo.db.recipes.insert_one(new_recipe)
 
