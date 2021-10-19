@@ -176,6 +176,7 @@ AIM | Achieved?
 Clicking on the logo will lead user to the home.html
 When user is not logged in, only link that will appear will be 'All recipes', 'Login', and 'Register'
 When user is logged in, the links on show will be 'All recipes', 'Random', 'Profile', and 'Logout'
+Clicking on 'logout' will lof the user out if his/her account and back to home.html
 
 ### Register testing
 AIM | Achieved?
@@ -216,7 +217,8 @@ Clicking on 'bye' will lead to a modal appearing
 The modal will ask 'Delete?' with a follow message 'Clicking yes will permanently delete your account and all your recipes'
 Clicking on 'no' will remove the modal
 Clicking on 'yes' will delete the user from the intended monog database (mongo.db.users)
-clicking on 'yes' will also lead the user back to the home.html
+Clicking on 'yes' will also lead the user back to the home.html
+On the right will be a card of the most popular recipe based on the ammount of likes
 
 ### All recipes testing
 AIM | Achieved?
@@ -224,8 +226,7 @@ AIM | Achieved?
 A host of cards should appear containing a picture, title, information regarding likes, servings, and cooking duration from the mongo database (mongo.db.recipes)
 Quantity of cards on show will match the quantity of entries in the mongo database that it is coming from
 Clicking on the 'i' icon should lead to another card sliding up contained the name of the recipe and the description
-Clicking on the 'like' icon (heart) will increment the number below it by 1
-Clciking on 'lets make this' will lead teh user to chosen_recipe.html
+Clicking on 'lets make this' will lead teh user to chosen_recipe.html
 If user is not logged in, 'like' icon will not be functional
 If user is not logged in, 'lets make this' link will not be visible
 
@@ -234,6 +235,7 @@ AIM | Achieved?
 --- | --- |
 Image of recipe should be near the upper left of the scren
 Recipe name, username, creation date, likes, servings, cooking curation, and recipe description should appear near the upper right of the screen
+Clicking on the 'like' icon (heart) will increment the number below it by 1
 Recipe ingredients list should appear near the lower left of the screen
 Recipe instructions list should appear near the lower right of the screen
 Recipe ingredints will appear in an unordered list format
@@ -256,7 +258,7 @@ Clicking on 'edit' will update the informatino of that recipe in the mongo datab
 Clicking on 'edit' will also then lead the user to the all_recipes.html
 Changed information of edited recipe should be visible in ohter pages the recipe appears in (all_recipes.html, chosen_recipes.html, and my_recipes.html)
 
-### Add recipe
+### Add recipe testing
 AIM | Achieved?
 --- | --- |
 'recipe name' field should take in any characters
@@ -267,12 +269,38 @@ AIM | Achieved?
 'recipe ingredients' field size should accomodate the entered information
 'recipe instructions' field will take in any characters
 'recipe instructions' field size should accomodate the entered information
+'recipe image url' field will take in url text
+'recipe imahe url' field size should accomodate the entered information
 'servings' will only take in numbers
 'servings' will take in a number of maximum of 2 digits long
 'duration' will only take in numbers
 'duration' will take in a number of maximum of 4 digits long
 Clicking on 'share' will update the relevant mongo database
 Clicking on 'share' will also lead teh user to the all_recipes.html
+
+### My recipes testing
+All recipe cards on show will be recipes posted by the user
+
+### Random recipes testing
+Three cards will be on show
+Recipe cards will change each time random.html is clicked
+
+### Security
+When logging out, session cookie of user will be deleted
+If session cookie of user is not in storage whilst navigating away from the 'profile' page whilst logged in, page will lead to an error 401 page
+If session cookie of user is not in storage whilst navigating away from the 'all recipes' page whilst logged in, page will lead to an error 404 page
+If session cookie of user is not in storage whilst navigating away from the 'random recipes' page whilst logged in, page will lead to an error 404 page
+If session cookie of user is not in storage whilst navigating away from the 'add recipe' page whilst logged in, page will lead to an error 404 page
+If session cookie of user is not in storage whilst submittin a form from the 'add_recipe' page whilst logged in, page will lead to an error 401 page
+If session cookie of user is not in storage whilst submittin a form from the 'add_recipe' page whilst logged in, relevant mongo database will not be updated
+If session cookie of user is not in storage whilst navigating away from the 'my recipes' page whilst logged in, page will lead to an error 401 page
+If session cookie of user is not in storage whilst navigating away from the 'chosen recipe' page whilst logged in, page will lead to an error 401 page
+If session cookie of user is not in storage whilst navigating away from the 'edit recipe' page whilst logged in, page will lead to an error 404 page
+If session cookie of user is not in storage whilst submittin a form from the 'edit_recipe' page whilst logged in, page will lead to an error 401 page
+If session cookie of user is not in storage whilst submittin a form from the 'edit_recipe' page whilst logged in, relevant mongo database will not be updated
+If session cookie of user is not in storage whilst clicking on the 'delete' button and then followed by the 'yes' button in the 'profile' page, page will lead to an error 404 page
+If session cookie of user is not in storage whilst clicking on 'yes' to delete the account, the relevant mongo database will not be updated
+
 
 ## DEPLOYMENT
 ### Github pages
