@@ -41,7 +41,24 @@
                             <h2>{{ recipe.recipe_name }}</h2>
                             <i>created by {{ recipe.created_by }} on {{ recipe.post_date }}</i>
                             <br>
-                            <div class="">
+                            <div class="center">
+                                <div class="ncc-inline-block ncc-margLeftRight-1rem">
+                                    <a href="{{ url_for('like', recipe_id=recipe._id) }}">
+                                        <i class="fas fa-heart small"></i>
+                                    </a>
+                                    <p class="center">{{ recipe.likes }}</p>
+                                </div>
+                                <div class="ncc-inline-block ncc-margLeftRight-1rem">
+                                    <i class="fas fa-clock prefix small"></i>
+                                    <p class="center">minutes</p>
+                                </div>
+                                <div class="ncc-inline-block ncc-margLeftRight-1rem ">
+                                    <i class="fas fa-users prefix small"></i>
+                                    <p class="center">6</p>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- <div class="">
                                 <i class="fas fa-clock"></i>
                                 <p class="ncc-inline-block">Duration: </p>
                                 <p class="ncc-inline-block">{{ recipe.recipe_duration }}</p>
@@ -50,7 +67,7 @@
                                 <i class="fas fa-user-friends ncc-inline-block"></i>
                                 <p class="ncc-inline-block">Servings:</p>
                                 <p class="ncc-inline-block">{{ recipe.recipe_servings }}</p>
-                            </div>
+                            </div> -->
                             <h5>Description</h5>
                             <p>{{ recipe.recipe_description }}</p>
                         </div>

@@ -93,8 +93,10 @@ def profile(username):
         "username": username
     })
 
+    hot = list(mongo.db.recipes.find().sort("likes", -1).limit(1))
+
     if session["this_user"]:
-        return render_template("profile.html", user=user_info)
+        return render_template("profile.html", user=user_info, hott=hot)
 
 
 # ------------------- Logging out
@@ -134,6 +136,7 @@ def add_recipe():
     return render_template("add_recipe.html")
 
 
+# ------------------- All recipes page (templates/all_recipes.html)
 @app.route("/all_recipes")
 def all_recipes():
     all_recipes = mongo.db.recipes.find()
@@ -141,6 +144,7 @@ def all_recipes():
     return render_template("all_recipes.html", recipes=all_recipes)
 
 
+# ------------------- Chosen recipe page (templates/chosen_recipe.html)
 @app.route("/chosen_recipe/<recipe_id>")
 def chosen_recipe(recipe_id):
     if not session.get("this_user"):
@@ -171,6 +175,7 @@ def my_recipes():
     return render_template("my_recipes.html", recipes=all_recipes)
 
 
+# ------------------- Delete recipe (templates/chosen_recipe.html)
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     if not session.get("this_user"):
@@ -209,12 +214,13 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", recipe=this_recipe)
 
 
+# ------------------- Like (templates/all_recipes.html, my_recipes.html, and random_recipes.html)
 @app.route("/like/<recipe_id>")
 def like(recipe_id):
     mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$inc": {
         "likes": 1
     }})
-    return redirect(url_for("all_recipes"))
+    return redirect(url_for("chosen_recipe", recipe_id=recipe_id))
 
 
 @app.route("/random_recipes")

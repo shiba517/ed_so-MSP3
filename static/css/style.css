@@ -32,6 +32,8 @@ body {
 
 .ncc-btn {
     background-color: #026670;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
 }
 
 .ncc-inline-block {
@@ -130,6 +132,10 @@ header .ncc-navbar-dec {
     width: 30%;
 }
 
+.ncc-fixbug1 {
+    border: solid #9FEDD7
+}
+
 
 /* --------- Register (register.html) --------- */
 .ncc-form-decoration {
@@ -192,6 +198,12 @@ header .ncc-navbar-dec {
     min-width: 30%
 }
 
+@media (min-width: 1200px) {
+    .ncc-searchForm-decoration .ncc-btn {
+        min-width: 10%
+    }
+}
+
 
 /* --------- Footer (base.html) --------- */
 footer {
@@ -219,4 +231,14 @@ footer {
 
 .ncc-icon-dec {
     color:maroon
+}
+
+.ncc-test {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.ncc-test2 {
+    padding: 0.5;
+    margin-bottom: 0
 }

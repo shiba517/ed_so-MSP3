@@ -11,6 +11,21 @@
 
 <div class="container">
     <div class="row">
+        <form class="s10 offset-s1 ncc-searchForm-decoration" method="POST" action="{{ url_for('search') }}">
+            <div class="input-field">
+                <input type="text" name="query" id="query" class="validate" required>
+                <label for="query">Search</label>
+            </div>
+            <button type="submit" class="btn-flat btn-small ncc-btn">
+                Search
+            </button>
+            <a href="{{ url_for('all_recipes') }}" class="btn-flat btn-small ncc-btn">reset</a>
+        </form>
+        
+        <p>{{ search_message }}</p>
+    </div>
+    
+    <div class="row">
     {% for each_recipe in recipes %}
         {% if each_recipe.created_by == session.this_user %}
         <div class="col s12 m4">
@@ -22,13 +37,7 @@
                 <div class="card-content">
                     <div class="center">
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
-                            {% if session.this_user %}
-                            <a href="{{ url_for('like', recipe_id=each_recipe._id) }}">
-                                <i class="fas fa-heart small"></i>
-                            </a>
-                            {% else %}
                             <i class="fas fa-heart small"></i>
-                            {% endif %}
                             <p class="center">{{ each_recipe.likes }}</p>
                         </div>
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
