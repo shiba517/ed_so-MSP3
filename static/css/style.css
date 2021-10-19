@@ -210,3 +210,9 @@ footer {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
+
+
+/* --------- profile (profile.html) --------- */
+#ncc-yourInfoArea .ncc-btn {
+    min-width: 10rem;
+}

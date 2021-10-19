@@ -26,14 +26,13 @@
                         </div>
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
                             <i class="fas fa-clock prefix small"></i>
-                            <p class="center">{{ each_recipe.recipe_duration }}</p>
+                            <p class="center">{{ each_recipe.recipe_duration }}m</p>
                         </div>
                         <div class="ncc-inline-block ncc-margLeftRight-1rem">
                             <i class="fas fa-users prefix small"></i>
-                            <p class="center">{{ each_recipe.recipe_duration }}</p>
+                            <p class="center">{{ each_recipe.recipe_servings }}</p>
                         </div>
                     </div>                       
-                    <p>{{ each_recipe.recipe_description }}</p>
                 </div>
                 
                 <div class="card-reveal">
@@ -41,7 +40,9 @@
                     <p>{{ each_recipe.recipe_description }}</p>
                 </div>
                 <div class="card-action">
+                    {% if session.this_user %}
                     <a href="{{ url_for('chosen_recipe', recipe_id=each_recipe._id) }}">Lets make this</a>
+                    {% endif %}
                     <i class="fas fa-info-circle activator small right"></i>
                 </div>
             </div>

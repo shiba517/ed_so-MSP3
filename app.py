@@ -240,6 +240,24 @@ def search():
     return render_template("all_recipes.html", recipes=all_recipes)
 
 
+# ------------------- Remove account (templates/profile.html)
+@app.route("/remove_account/<user_id>")
+def remove_account(user_id):
+    if not session.get("this_user"):
+        return redirect(url_for("error401"))
+
+    mongo.db.recipes.remove(
+        {"created_by": session["this_user"]}
+    )
+
+    mongo.db.users.remove(
+        {"_id": ObjectId(user_id)}
+    )
+    session.pop("this_user")
+
+    return redirect(url_for('home'))
+
+
 # ------------------- Error 401 page (templates/error401.html)
 @app.route("/error401")
 def error401():

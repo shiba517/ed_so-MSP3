@@ -13,7 +13,9 @@
                 <!-- Website slogan -->
                 <p>make meal choices easy :)</p>
             </div>
+            {% if session.this_user %}
             <a href="{{ url_for('register') }}" class="btn-flat btn-large ncc-btn">register</a>
+            {% endif %}
             <a href="#ncc-id-homeScreen-p2" class="btn-flat btn-large ncc-btn">more</a>
         </div>
     </div>
