@@ -57,17 +57,21 @@
         </ul>
     </header>
 
-    <!-- Flash messages will be shown here -->
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    <h4 class="center">{{ message }}</h4>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
+    <main>
+        <!-- Flash messages will be shown here -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <h4 class="center">{{ message }}</h4>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
 
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    
     
     <!-- Footer of the page -->
     <footer>

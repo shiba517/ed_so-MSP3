@@ -8,7 +8,13 @@ body {
     background-color: #EDEAE5;
     background-color: #FEF9C7;
     font-family: 'Rubik', sans-serif;
+    display: flex;
     min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 
@@ -258,10 +264,11 @@ footer {
     background-color: #9FEDD7;
     background-color: #026670;
     padding-bottom: 2rem;
+    margin-top: 4rem;
 }
 
 #ncc-footer {
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
     padding-top: 1rem;
     /* border-top: solid black; */
 }
