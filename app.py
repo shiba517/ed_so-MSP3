@@ -204,9 +204,10 @@ def edit_recipe(recipe_id):
             "recipe_ingredients": request.form.get("recipe_ingredients"),
             "recipe_instructions": request.form.get("recipe_instructions"),
             "recipe_servings": request.form.get("recipe_servings"),
-            "recipe_duration": request.form.get("recipe_duration")
+            "recipe_duration": request.form.get("recipe_duration"),
+            "recipe_image_url": request.form.get("recipe_image_url")
             }})
-        return redirect(url_for("my_recipes"))
+        return redirect(url_for("all_recipes"))
 
     this_recipe = mongo.db.recipes.find_one({
         "_id": ObjectId(recipe_id)

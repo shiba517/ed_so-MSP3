@@ -75,15 +75,10 @@ body {
     background-color: blue;
 }
 
-#ncc-yourInfoArea .card-action .ncc-blackFont {
-    color: black;
-}
-
 #ncc-id-recipeCard .card-action .ncc-blackFont {
     color: #026670;
     color: black;
 }
-
 
 /* --------- Navigation bar (base.html) --------- */
 header .ncc-navbar-dec {
@@ -164,6 +159,37 @@ header .ncc-navbar-dec {
     color: #EDEAE5;
 }
 
+
+/* --------- profile (profile.html) --------- */
+#ncc-yourInfoArea .ncc-btn {
+    min-width: 10rem;
+}
+
+@media (max-width: 600px) {
+    #ncc-yourInfoArea .col:first-child {
+        margin-bottom: 2rem;
+    }
+}
+
+#ncc-yourInfoArea .card-action .ncc-blackFont {
+    color: black;
+}
+
+.ncc-icon-dec {
+    color:maroon
+}
+
+.ncc-test {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.ncc-test2 {
+    padding: 0.5;
+    margin-bottom: 0
+}
+
+
 /* --------- All recipes (all_recipes.html) --------- */
 .ncc-recipeCard-decoration {
     border: none;
@@ -201,7 +227,8 @@ header .ncc-navbar-dec {
     min-width: 40%
 }
 
-/* --------- search recipe (all_recipes.html & my_recipes.html) --------- */
+
+/* --------- Search recipe (all_recipes.html & my_recipes.html) --------- */
 .ncc-searchForm-decoration {
     background-color: #9FEDD7;
     /* background-color: #026670; */
@@ -240,30 +267,4 @@ footer {
 #ncc-footer li {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-}
-
-
-/* --------- profile (profile.html) --------- */
-#ncc-yourInfoArea .ncc-btn {
-    min-width: 10rem;
-}
-
-@media (max-width: 600px) {
-    #ncc-yourInfoArea .col:first-child {
-        margin-bottom: 2rem;
-    }
-}
-
-.ncc-icon-dec {
-    color:maroon
-}
-
-.ncc-test {
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.ncc-test2 {
-    padding: 0.5;
-    margin-bottom: 0
 }

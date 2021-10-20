@@ -5,6 +5,8 @@ A study by Colin Camera from Caltech (https://www.caltech.edu/about/news/scienti
 
 Caltech have asked me to create an app/website that will help people make decision on what to cook by giving them a list of recipes.  
 
+[Live project](https://ed-so-msp3.herokuapp.com/)
+
 ## USER EXPERIENCE (UX)
 ### Project goals
 * To make a website where the user will be able to use a CRUD (create, read, update, and delete) function in the form of recipes 
@@ -59,8 +61,8 @@ Interaction design:
 * Error pages should be made which will be much more visually and mentally pleasant than the default browsers default page. Have it lead to a the home page or a relevant page. 
 
 Information architecture:
-
 * [Sitemap](readme_files/images/sitemmap.png)
+* [Database](readme_files/images/database.png)
 
 ### Skeleton
 Laptop/PC Version
@@ -89,11 +91,11 @@ Mobile Version
 
 ### Surface
 Colour scheme:
-* A shade of dark turqiouse - #026670/rgb()
-* A shade of light turqiouse - #9FEDD7/rgb()
-* A shade of light cream - #FEF9C7/rgb()
-* A shade of pale yellow - #FCE181/rgb()
-* A very light shade of cream - #EDEAE5/rgb()
+* A shade of dark turqiouse - #026670/rgb(2, 102, 112)
+* A shade of light turqiouse - #9FEDD7159, 237, 215)
+* A shade of light cream - #FEF9C7/rgb(254, 249, 199)
+* A shade of pale yellow - #FCE181/rgb(252, 225, 129)
+* A very light shade of cream - #EDEAE5/rgb(237, 234, 229)
 
 Font:
 * Main headings - [link](https://fonts.google.com/specimen/Rubik#standard-styles)
@@ -126,11 +128,16 @@ Font:
 * HTML
 * CSS
 * Materialize - a .css library which also includes use of .js
+* MongoDB - Cloud based service focused on database management
 * Font awesome - a catalogue of icons for .html files
+* Flask - framework for use of making a website
+* Jinja - a template for use of python in .html
+* Werkzeug - useful for keeping data safe such as passwords
 * Jquery - A convenient JS library
 * Github - Save and deploy projects useing this
 * Git pod - Platform to write code
 * Balsamiq - software for use fo making skeleton sketches
+* Paint 3D - an app I used to help resize and edit images; It is available on Windows 10
 * Lucid chart - website where you can make flowcharts
 * W3C Markup Validator - detects any errors in .html files
 * W3C CSS Validator - detects any errors in .css files
@@ -279,13 +286,19 @@ Clicking on 'share' will update the relevant mongo database
 Clicking on 'share' will also lead teh user to the all_recipes.html
 
 ### My recipes testing
+AIM | Achieved?
+--- | --- |
 All recipe cards on show will be recipes posted by the user
 
 ### Random recipes testing
+AIM | Achieved?
+--- | --- |
 Three cards will be on show
 Recipe cards will change each time random.html is clicked
 
 ### Security
+AIM | Achieved?
+--- | --- |
 When logging out, session cookie of user will be deleted
 If session cookie of user is not in storage whilst navigating away from the 'profile' page whilst logged in, page will lead to an error 401 page
 If session cookie of user is not in storage whilst navigating away from the 'all recipes' page whilst logged in, page will lead to an error 404 page
@@ -301,6 +314,10 @@ If session cookie of user is not in storage whilst submittin a form from the 'ed
 If session cookie of user is not in storage whilst clicking on the 'delete' button and then followed by the 'yes' button in the 'profile' page, page will lead to an error 404 page
 If session cookie of user is not in storage whilst clicking on 'yes' to delete the account, the relevant mongo database will not be updated
 
+### Bugs and fixes
+Problem | Solved? | How?
+--- | --- | --- |
+grid system for the 'How it works' section in the home.html was not working as expected on screen sizes of l+ - [image 1](readme_files/images/grid_misalignment_issue.png) [image 2](readme_files/images/grid_misalignment_issue_code.png) | YES | I included a border around each div which contained .col, .s12, m6, l6. For whatever reason, this solved the problem. I came upon this solution with my suspicion that padding and/or margin might be the issue. I created a border to check the width of the div and to my great fortune, this solved the issue. [image](readme_files/images/grid_misalignment_issue_solved.png)
 
 ## DEPLOYMENT
 ### Github pages
@@ -325,8 +342,42 @@ You may want to have access via a copy of the repository on your own device. The
 2. In the terminal, type in ‘git clone’ ; do not press enter or anything else
 3. Now login to your GitHub account and open up the repository you would like to copy
 4. Click on the ‘Code’ button again and copy the text given under the subheading ‘HTTPS’. A button next to this text gives you an easier way of copying the text
-5. Back to your IDE terminal, after the ‘git clone’, press the spacebar button and paste in the link you copied from the repository. Your entry in the terminal should look something like this: ‘gti clone https://github.com/shiba517/MSP2-The-Memory-Game.git’. Then press enter
+5. Back to your IDE terminal, after the ‘git clone’, press the spacebar button and paste in the link you copied from the repository. Your entry in the terminal should look something like this: ‘gti clone https://github.com/shiba517/ed_so-MSP3.git’. Then press enter
 6. Your terminal will let you know the repository has been cloned and saved to your preferred destination and will be evident when viewing files and folders from your preferred destination
+
+### Setting project up with MongoDB
+1. Log into your MongoDB account and open up your prefered cluster
+2. From your prefered cluster page, click on the 'COLLECTIONS' button
+3. A new databse will need to be built. Click on 'Create Databse', fill out the fields and click 'Create'
+    * To create more collections, click on the 'CREATE COLLECTION' button
+    * clicking on the name of any of the collections you made, you can add keys and value pairs by clicking on the 'INSERT DOCUMENT' button
+
+### Deploying to Heroku
+1. Int your chosen IDE, create an env.py file
+    * type in the following (minus the * sign):
+        * Import os
+        * os.environ.setdefault("IP", "0.0.0.0")
+        * os.environ.setdefault("PORT", "5000")
+        * os.environ.setdefault("SECRET_KEY", "(enter in a password")
+        * os.environ.setdefault("MONGO_URI", "")
+        * os.environ.setdefault("MONGO_DBNAME", "(name of your collection)")
+    * Create a .gitignore file and type in (without the quotation marks) "env.py"
+1. In the terminal, type in (without the quotation marks) "pip3 freeze --local > requirements.txt"
+2. In the termianl, now type in "echo web: python app.py > Procfile"
+    * New files will appear under the name of 'requirements.txt' and 'Procfile'
+    * In the 'Procfile', if you notice a blank line at the end (usually line 2), delete it
+3. Noe login into your Heroku and create a new app
+    1. Under the 'Deploy' tab, connect to Github by clicking on Github and connect it to you repository
+    2. Now go to the 'Setting' tab and lcik on 'Reveal Convig Vars'
+    3. Enter details of your env.py file here
+    4. Back on your terminal, push all changes made
+    5. In teh 'settings' tab of your heroku account, click on 'Enable Automatic Deploys'; It should now be read as 'Disable Automatic Deploys'
+    6. Now clik on 'Deploy Branch'. Heroku will now connect with Github to create your app
+    7. When that is complete, you can view your new app by clicking on the bewly appeared button, 'View'
+4. Everytime you want your code to be on the app, you can finalise that by pushing all changes via your terminal in your Github IDE
+5. When you log back in to your Heroku account and open up the file of your project, a button in corner named 'Open app' will open your app
+
+
 
 ## CREDITS
 ### Content
@@ -338,3 +389,8 @@ You may want to have access via a copy of the repository on your own device. The
 * Typography for headings by **Johan Aukerlund** - https://fonts.google.com/specimen/Rubik#standard-styles 
 * Typography for non-headings by **Julieta Ulanovsky, Sol Matas, Juan Pablo del Peral, Jacques Le Bailly** - https://fonts.google.com/specimen/Montserrat?query=montserrat
 * Illustration by **Freepic.com** via **Flaticon** - https://www.flaticon.com/authors/kawaii/lineal-color
+
+## NOTES FOR ASSESSMENT
+Login details for admin purposes
+    * username: admin
+    * password: secretpassword123
