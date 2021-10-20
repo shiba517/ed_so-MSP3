@@ -401,6 +401,15 @@ You may want to have access via a copy of the repository on your own device. The
 * Typography for non-headings by **Julieta Ulanovsky, Sol Matas, Juan Pablo del Peral, Jacques Le Bailly** - https://fonts.google.com/specimen/Montserrat?query=montserrat
 * Illustration by **Freepic.com** via **Flaticon** - https://www.flaticon.com/authors/kawaii/lineal-color
 
+### Recipes
+
+## ACKNOWLEDGEMENT
+* Course tutor Precious Ijege
+* [Code Institue course](https://codeinstitute.net/)
+* [Web Dev Simplified](https://www.youtube.com/watch?v=ofme2o29ngU&t=606s)
+* [W3Schools](https://www.w3schools.com/python/)
+
+
 ## NOTES FOR ASSESSMENT
 Login details for admin purposes
     * username: admin

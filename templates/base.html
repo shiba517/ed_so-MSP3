@@ -53,6 +53,7 @@
         </ul>
     </header>
 
+    <!-- Flash messages will be shown here -->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
@@ -63,13 +64,15 @@
 
     {% block content %}
     {% endblock %}
-
+    
+    <!-- Footer of the page -->
     <footer>
         {% block footercontent %}
         {% endblock %}
         <div id="ncc-footer" class="container">
             <div class="row center">
                 <div class="col s12">
+                    <!-- List of social media links -->
                     <ul>
                         <li class="ncc-inline-block"><a class="grey-text text-lighten-3" href="https://www.facebook.com/"><i class="fab fa-facebook small"></i></a></li>
                         <li class="ncc-inline-block"><a class="grey-text text-lighten-3" href="https://twitter.com/?lang=en-gb"><i class="fab fa-twitter small"></i></a></li>

@@ -48,6 +48,7 @@
                 </div>
             </div>
             {% endif %}
+            <!-- Button only available for the admin -->
             {% if session.this_user == "admin" %}
             <div class="center ncc-margbot-2">
                 <p>Don't like someone?</p>
@@ -56,6 +57,7 @@
             {% endif %}
         </div>
         <div class="col s12 m6 l6 xl4 offset-xl1">
+            <!-- Recipe card will be based upon which recipe has the most likes -->
             <h4 class="center">Recipe of the moment</h4>
             <div class="card medium hoverable ncc-recipeCard-decoration">
                 <div class="card-image">

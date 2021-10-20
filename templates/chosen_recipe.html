@@ -12,6 +12,7 @@
                         </div>
                         <div class="col s12 m6 ">
                             {% if session.this_user == recipe.created_by or session.this_user == "admin" %}
+                            <!-- Icon in the corner of the screen giving the option to edit and delete the recipe. Only accessible to the user who posted it and the admin -->
                             <div class="fixed-action-btn">
                                 <a class="btn-floating btn-large green">
                                     <i class="large fas fa-plus"></i>
@@ -42,32 +43,25 @@
                             <i>created by {{ recipe.created_by }} on {{ recipe.post_date }}</i>
                             <br>
                             <div class="center">
+                                <!-- Likes - clickable and will increment -->
                                 <div class="ncc-inline-block ncc-margLeftRight-1rem">
                                     <a href="{{ url_for('like', recipe_id=recipe._id) }}">
                                         <i class="fas fa-heart small"></i>
                                     </a>
                                     <p class="center">{{ recipe.likes }}</p>
                                 </div>
+                                <!-- Cooking duration -->
                                 <div class="ncc-inline-block ncc-margLeftRight-1rem">
                                     <i class="fas fa-clock prefix small"></i>
                                     <p class="center">{{ recipe.recipe_duration }}m</p>
                                 </div>
+                                <!-- How many the recipe will feed -->
                                 <div class="ncc-inline-block ncc-margLeftRight-1rem ">
                                     <i class="fas fa-users prefix small"></i>
                                     <p class="center">{{ recipe.recipe_servings }}</p>
                                 </div>
                             </div>
                             <br>
-                            <!-- <div class="">
-                                <i class="fas fa-clock"></i>
-                                <p class="ncc-inline-block">Duration: </p>
-                                <p class="ncc-inline-block">{{ recipe.recipe_duration }}</p>
-                            </div>
-                            <div class="">
-                                <i class="fas fa-user-friends ncc-inline-block"></i>
-                                <p class="ncc-inline-block">Servings:</p>
-                                <p class="ncc-inline-block">{{ recipe.recipe_servings }}</p>
-                            </div> -->
                             <h5>Description</h5>
                             <p>{{ recipe.recipe_description }}</p>
                         </div>

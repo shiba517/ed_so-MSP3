@@ -65,13 +65,23 @@ def register():
     return render_template("register.html")
 
 
+# ------------------- Ban page (templates/ban.html)
 @app.route("/ban", methods=["GET", "POST"])
 def ban():
+    # For security reasons
+    if session.get("this_user") != "admin":
+        return redirect(url_for("error404"))
+
     if request.method == "POST":
+        # For security reasons
+        if session.get("this_user") != "admin":
+            return redirect(url_for("error404"))
+
         check_user_exists = mongo.db.users.find_one({
             "username": request.form.get("username").lower()
         })
 
+        # Check if such a user exists
         if check_user_exists:
             mongo.db.recipes.remove(
                 {"created_by": check_user_exists["username"]}
@@ -83,6 +93,7 @@ def ban():
             flash("that chef has been fired")
             return redirect(url_for("profile", username="admin"))
 
+        # If user does not exist
         flash("user does not exist")
         return render_template("ban.html")
 
@@ -113,10 +124,12 @@ def login():
 
             # Incorrect password was entered
             else:
+                flash("Username and/or password was incorrect")
                 redirect(url_for("login"))
 
         # Incorrect username was entered
         else:
+            flash("Username and/or password was incorrect")
             redirect(url_for("login"))
 
     return render_template("login.html")
@@ -237,7 +250,7 @@ def delete_recipe(recipe_id):
         {"_id": ObjectId(recipe_id)}
     )
 
-    flash("Recipe deleted")
+    flash("Recipe has been deleted")
     return redirect(url_for("my_recipes"))
 
 
@@ -246,6 +259,15 @@ def delete_recipe(recipe_id):
 def edit_recipe(recipe_id):
     # For security reasons
     if not session.get("this_user"):
+        return redirect(url_for("error401"))
+
+    # Fields will be prefilled with information from here
+    this_recipe = mongo.db.recipes.find_one({
+        "_id": ObjectId(recipe_id)
+    })
+
+    # For security reasons
+    if session.get("this_user") != this_recipe["created_by"] and session.get("this_user") != "admin":
         return redirect(url_for("error401"))
 
     # When user clicks on 'edit' button
@@ -265,13 +287,8 @@ def edit_recipe(recipe_id):
             "recipe_image_url": request.form.get("recipe_image_url")
             }})
         
-        flash("Recipe edited")
+        flash("Recipe has been edited")
         return redirect(url_for("my_recipes"))
-
-    # Fields will be prefilled with information from here
-    this_recipe = mongo.db.recipes.find_one({
-        "_id": ObjectId(recipe_id)
-    })
 
     return render_template("edit_recipe.html", recipe=this_recipe)
 
@@ -326,10 +343,12 @@ def search():
     find_this = request.form.get("query")
     all_recipes = list(mongo.db.recipes.find({"$text": {"$search": find_this}}))
 
+    search_message = "We found {} matches for you"
+
     if not session.get("this_user"):
         return redirect(url_for("error404"))
 
-    return render_template("all_recipes.html", recipes=all_recipes)
+    return render_template("all_recipes.html", recipes=all_recipes, search_message=search_message.format(len(all_recipes)))
 
 
 # ------------------- Remove account (templates/profile.html)
