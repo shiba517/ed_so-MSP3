@@ -99,7 +99,7 @@ Colour scheme:
 
 Font:
 * Main headings - [link](https://fonts.google.com/specimen/Rubik#standard-styles)
-* Regular text - Montserrat 
+* Regular text - Montserrat - [link](https://fonts.google.com/specimen/Montserrat?query=montserrat)
 
 
 ## FEATURES
@@ -296,7 +296,18 @@ AIM | Achieved?
 Three cards will be on show
 Recipe cards will change each time random.html is clicked
 
-### Security
+### Admin testing
+AIM | Achieved?
+--- | --- |
+Ability to edit any recipe
+Ability to delete any recipe
+'bye' button will not be visible in profile.html
+'ban' button will be visible in profile.html
+On ban.html, entered user will be deleted from teh mongo database
+The deleted user will also have all theri recipes deleted from the mongo database
+If user does not exist, flash message of "user does not exist" will appear
+
+### Security testing
 AIM | Achieved?
 --- | --- |
 When logging out, session cookie of user will be deleted
