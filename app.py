@@ -52,7 +52,7 @@ def register():
         session["this_user"] = request.form.get("username")
 
         # Taking new user to their Profile page
-        return redirect(url_for("profile", username=session["this_user"]))
+        return redirect(url_for("profile", username=session["this_user"])
 
     return render_template("register.html")
 
@@ -258,6 +258,7 @@ def random_recipes():
 def search():
     find_this = request.form.get("query")
     all_recipes = list(mongo.db.recipes.find({"$text": {"$search": find_this}}))
+
     if not session.get("this_user"):
         return redirect(url_for("error404"))
 
