@@ -8,6 +8,7 @@ body {
     background-color: #EDEAE5;
     background-color: #FEF9C7;
     font-family: 'Rubik', sans-serif;
+    min-height: 100vh;
 }
 
 
@@ -71,7 +72,7 @@ body {
 }
 
 .ncc-vh100 {
-    height: 100vh;
+    min-height: 100vh;
     background-color: blue;
 }
 
@@ -89,6 +90,7 @@ header .ncc-navbar-dec {
 .ncc-homeScreen-p1 {
     height: 85vh;
 }
+
 
 
 /* --------- Home page (home.html) --------- */
