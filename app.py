@@ -34,7 +34,7 @@ def home():
 def register():
     # For use when user registers and then persses teh back button on the window
     if session.get("this_user"):
-        return redirect(url_for("error404"))
+        return render_template("home.html")
 
     # When user clicks 'register'
     if request.method == "POST":
@@ -103,9 +103,9 @@ def ban():
 # ------------------- Login page (templates/login.html)
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    # For use when user logs in and then persses teh back button on the window
+    # For use when user logs in and then persses the back button on the window
     if session.get("this_user"):
-        return redirect(url_for("error404"))
+        return render_template("home.html")
 
     # When user clicks on 'login' button
     if request.method == "POST":
