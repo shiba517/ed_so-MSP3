@@ -53,6 +53,13 @@
         </ul>
     </header>
 
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h4 class="center">{{ message }}</h4>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 
     {% block content %}
     {% endblock %}

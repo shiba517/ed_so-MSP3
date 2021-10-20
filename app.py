@@ -65,6 +65,25 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/ban", methods=["GET", "POST"])
+def ban():
+    if request.method == "POST":
+        check_user_exists = mongo.db.users.find_one({
+            "username": request.form.get("username").lower()
+        })
+        mongo.db.recipes.remove(
+            {"created_by": check_user_exists["username"]}
+        )
+        mongo.db.users.remove(
+            {"_id": ObjectId(check_user_exists["_id"])}
+        )
+
+        flash("that chef has been fired")
+        return redirect(url_for("all_recipes"))
+
+    return render_template("ban.html")
+
+
 # ------------------- Login page (templates/login.html)
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -242,7 +261,7 @@ def edit_recipe(recipe_id):
             }})
         
         flash("Recipe edited")
-        return redirect(url_for("all_recipes"))
+        return redirect(url_for("my_recipes"))
 
     # Fields will be prefilled with information from here
     this_recipe = mongo.db.recipes.find_one({
