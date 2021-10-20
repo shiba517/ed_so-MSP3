@@ -388,15 +388,31 @@ You may want to have access via a copy of the repository on your own device. The
 ## CREDITS
 ### Content
 * Inpsiration for the fictional story of the aim of the making of the website, written in the Overview section, was inspired by an article found on caltech.edu - [link](https://www.caltech.edu/about/news/scientists-uncover-why-you-cant-decide-what-order-lunch-83881)
-* All written content on the website was created by me
+* All written content; except for the written content on the recipe cards, was written by me
 
 ### Media
 * Colour scheme (#50) by **Five Hundred** - https://visme.co/blog/website-color-schemes/
 * Typography for headings by **Johan Aukerlund** - https://fonts.google.com/specimen/Rubik#standard-styles 
 * Typography for non-headings by **Julieta Ulanovsky, Sol Matas, Juan Pablo del Peral, Jacques Le Bailly** - https://fonts.google.com/specimen/Montserrat?query=montserrat
 * Illustration by **Freepic.com** via **Flaticon** - https://www.flaticon.com/authors/kawaii/lineal-color
+    * [question.png](https://www.flaticon.com/free-icon/question_5696601)
+    * [cook.png](https://www.flaticon.com/free-icon/baker_817282?term=chef&page=1&position=33&page=1&position=33&related_id=817282&origin=search)
+    * [sharing.png](https://www.flaticon.com/free-icon/sharing_1721682)
+    * [social-media](https://www.flaticon.com/free-icon/social-media_4841173)
 
 ### Recipes
+For experimenting and testing of the website, I used the recipes on [BBC Good Food webite](https://www.bbcgoodfood.com/). Below is a list of the links to the recipes I used which also inlcudes the images
+* [Slow cooker chilli con carne](https://www.bbcgoodfood.com/recipes/slow-cooker-chilli-con-carne) by **Esther Clark**
+* [Caponata pasta](https://www.bbcgoodfood.com/recipes/caponata-pasta) by **Cassie Best**
+* [Coconut & squash dhansak](https://www.bbcgoodfood.com/recipes/coconut-squash-dhansak) by **Cassie Best**
+* [Vegetarian fajitas](https://www.bbcgoodfood.com/recipes/veggie-fajitas) by **Lulu Grimes**
+* [Chorizo & mozzarella gnocchi bake](https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake) by **Marianne Turner**
+* [Creamy salmon, leek & potato traybake](https://www.bbcgoodfood.com/recipes/creamy-salmon-leek-potato-traybake) by **Esther Clark**
+* [Tomato & mascarpone risotto](https://www.bbcgoodfood.com/recipes/tomato-mascarpone-risotto) by **Esther Clark**
+* [Healthy mushroom soup](https://www.bbcgoodfood.com/recipes/russian-wild-mushroom-barley-soup) by **Diana Henry**
+* [Pasta e fagioli](https://www.bbcgoodfood.com/recipes/pasta-e-fagioli) by **Myles Williamson**
+* [Lentil soup](https://www.bbcgoodfood.com/recipes/lentil-soup) by **Member recipe by bevieevey**
+
 
 ## ACKNOWLEDGEMENT
 * Course tutor Precious Ijege
