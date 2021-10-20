@@ -8,7 +8,7 @@
                 <div class="s12">
                     <div class="row ncc-paddingLeftRight-1rem ncc-paddingTop-1rem">
                         <div class="col s12 m6">
-                            <img src="../static/images/karthik-garikapati-oBbTc1VoT-0-unsplash.jpg" alt="">
+                            <img src="{{ recipe.recipe_image_url }}" alt="">
                         </div>
                         <div class="col s12 m6 ">
                             {% if session.this_user == recipe.created_by or session.this_user == "admin" %}

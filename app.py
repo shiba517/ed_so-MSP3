@@ -32,11 +32,18 @@ def home():
 # ------------------- Register page (templates/register.html)
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    # For use when user registers and then persses teh back button on the window
+    if session.get("this_user"):
+        return redirect(url_for("error404"))
+
+    # When user clicks 'register'
     if request.method == "POST":
+        # Checking if username exists
         check_user_exists = mongo.db.users.find_one({
             "username": request.form.get("username").lower()
         })
 
+        # If username has been taken
         if check_user_exists:
             return redirect(url_for("register"))
 
@@ -60,11 +67,18 @@ def register():
 # ------------------- Login page (templates/login.html)
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    # For use when user logs in and then persses teh back button on the window
+    if session.get("this_user"):
+        return redirect(url_for("error404"))
+
+    # When user clicks on 'login' button
     if request.method == "POST":
+        # Checks if username is in the database
         check_user_exists = mongo.db.users.find_one({
             "username": request.form.get("username").lower()
         })
 
+        # If username is in teh database
         if check_user_exists:
             # Checking if correct password has been entered
             if check_password_hash(check_user_exists["password"], request.form.get("password")):
@@ -86,13 +100,16 @@ def login():
 # ------------------- Profile page (templates/profile.html)
 @app.route("/profile/<username>")
 def profile(username):
+    # For security reasons
     if not session.get("this_user"):
         return redirect(url_for("error401"))
 
+    # Detting the document of the user
     user_info = mongo.db.users.find_one({
         "username": username
     })
 
+    # Details of the card that will bo on show
     hot = list(mongo.db.recipes.find().sort("likes", -1).limit(1))
 
     if session["this_user"]:
@@ -109,9 +126,11 @@ def logout():
 # ------------------- Add recipe page (templates/add_recipe.html)
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    # For security reasons
     if not session.get("this_user"):
         return redirect(url_for("error401"))
 
+    # When user clicks on 'share'
     if request.method == "POST":
         if not session.get("this_user"):
             return redirect(url_for("error404"))
@@ -148,6 +167,7 @@ def all_recipes():
 # ------------------- Chosen recipe page (templates/chosen_recipe.html)
 @app.route("/chosen_recipe/<recipe_id>")
 def chosen_recipe(recipe_id):
+    # For security reasons
     if not session.get("this_user"):
         return redirect(url_for("error401"))
 
@@ -168,9 +188,11 @@ def chosen_recipe(recipe_id):
 # ------------------- My recipes page (templates/my_recipes.html)
 @app.route("/my_recipes")
 def my_recipes():
+    # For security reasons
     if not session.get("this_user"):
         return redirect(url_for("error401"))
 
+    # Getting the documents for all the recipes; will tehn be filtered in the my_recipes.html
     all_recipes = mongo.db.recipes.find()
 
     return render_template("my_recipes.html", recipes=all_recipes)
@@ -179,9 +201,11 @@ def my_recipes():
 # ------------------- Delete recipe (templates/chosen_recipe.html)
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    # For security reasons
     if not session.get("this_user"):
         return redirect(url_for("error401"))
 
+    # Chosen recipe will now be removed from the database
     mongo.db.recipes.remove(
         {"_id": ObjectId(recipe_id)}
     )
@@ -191,13 +215,17 @@ def delete_recipe(recipe_id):
 # ------------------- Edit recipe page (templates/edit_recipe.html)
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    # For security reasons
     if not session.get("this_user"):
         return redirect(url_for("error401"))
 
+    # When user clicks on 'edit' button
     if request.method == "POST":
+        # For security reasons
         if not session.get("this_user"):
             return redirect(url_for("error404"))
 
+        # Will now update
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": {
             "recipe_name": request.form.get("recipe_name"), 
             "recipe_description": request.form.get("recipe_description"),
@@ -209,6 +237,7 @@ def edit_recipe(recipe_id):
             }})
         return redirect(url_for("all_recipes"))
 
+    # Fields will be prefilled with information from here
     this_recipe = mongo.db.recipes.find_one({
         "_id": ObjectId(recipe_id)
     })
@@ -219,6 +248,7 @@ def edit_recipe(recipe_id):
 # ------------------- Like (templates/all_recipes.html, my_recipes.html, and random_recipes.html)
 @app.route("/like/<recipe_id>")
 def like(recipe_id):
+    # Clicking on the heart icon will increment the likes
     mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$inc": {
         "likes": 1
     }})
@@ -227,23 +257,27 @@ def like(recipe_id):
 
 @app.route("/random_recipes")
 def random_recipes():
+    # For security reasons  
     if not session.get("this_user"):
         return redirect(url_for("error404"))
 
     all_recipes = list(mongo.db.recipes.find())
 
+    # Process of creating a random selected recipes
     all_recipes_copy = all_recipes
     random_recipes = []
     max_cards = 3
     current_card = 0
     current_user = session["this_user"]
 
+    # If not enough recipes are in the database to create a random selection
     if len(all_recipes) < max_cards:
         while current_card < len(all_recipes):
             random_number = random.randrange(0, len(all_recipes_copy))
             random_recipes.append(all_recipes_copy[random_number])
             all_recipes_copy.pop(random_number)
             current_card += 1
+    # If enough recipes are in teh databse to create a random selection
     else:
         while current_card < max_cards:
             random_number = random.randrange(0, len(all_recipes_copy))
@@ -257,6 +291,7 @@ def random_recipes():
 # ------------------- Search (templates/all_recipe.html, my_recipes.html)
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    # Finding the wanted recipes
     find_this = request.form.get("query")
     all_recipes = list(mongo.db.recipes.find({"$text": {"$search": find_this}}))
 
@@ -269,13 +304,16 @@ def search():
 # ------------------- Remove account (templates/profile.html)
 @app.route("/remove_account/<user_id>")
 def remove_account(user_id):
+    # For security reasons
     if not session.get("this_user"):
         return redirect(url_for("error404"))
 
+    # Removing all recipes owned by that user
     mongo.db.recipes.remove(
         {"created_by": session["this_user"]}
     )
 
+    # And then removing their account form the database
     mongo.db.users.remove(
         {"_id": ObjectId(user_id)}
     )
@@ -294,6 +332,9 @@ def error401():
 # ------------------- Error 404 page (templates/error401.html)
 @app.route("/error404")
 def error404():
+    if session.get("this_user"):
+        session.pop("this_user")
+
     flash("Page not found")
     return render_template("error404.html")
 
