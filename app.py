@@ -71,15 +71,20 @@ def ban():
         check_user_exists = mongo.db.users.find_one({
             "username": request.form.get("username").lower()
         })
-        mongo.db.recipes.remove(
-            {"created_by": check_user_exists["username"]}
-        )
-        mongo.db.users.remove(
-            {"_id": ObjectId(check_user_exists["_id"])}
-        )
 
-        flash("that chef has been fired")
-        return redirect(url_for("all_recipes"))
+        if check_user_exists:
+            mongo.db.recipes.remove(
+                {"created_by": check_user_exists["username"]}
+            )
+            mongo.db.users.remove(
+                {"_id": ObjectId(check_user_exists["_id"])}
+            )
+
+            flash("that chef has been fired")
+            return redirect(url_for("profile", username="admin"))
+
+        flash("user does not exist")
+        return render_template("ban.html")
 
     return render_template("ban.html")
 
