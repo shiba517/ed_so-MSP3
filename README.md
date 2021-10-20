@@ -161,8 +161,8 @@ As an admin, I want to maintain the website  | not yet
 As an admin, I want to to have the option to delete certain recipes and members | not yet 
 
 ### CRUD (create, read, update, and delete) testing
-AIM | Achieved?
---- | --- |
+AIM | Mobile | Tablet | Laptop | Large monitor
+--- | --- | --- | --- | --- |
 Can a user create a recipe? | yes 
 Can a user read(view) a recipe? | yes 
 Can a user update a recipe? | yes 
@@ -325,22 +325,17 @@ If session cookie of user is not in storage whilst submittin a form from the 'ed
 If session cookie of user is not in storage whilst clicking on the 'delete' button and then followed by the 'yes' button in the 'profile' page, page will lead to an error 404 page
 If session cookie of user is not in storage whilst clicking on 'yes' to delete the account, the relevant mongo database will not be updated
 
+### Responsive testing
+#### Google Chrome
+ | Solved? | How?
+--- | --- | --- |
+
 ### Bugs and fixes
 Problem | Solved? | How?
 --- | --- | --- |
 grid system for the 'How it works' section in the home.html was not working as expected on screen sizes of l+ - [image 1](readme_files/images/grid_misalignment_issue.png) [image 2](readme_files/images/grid_misalignment_issue_code.png) | YES | I included a border around each div which contained .col, .s12, m6, l6. For whatever reason, this solved the problem. I came upon this solution with my suspicion that padding and/or margin might be the issue. I created a border to check the width of the div and to my great fortune, this solved the issue. [image](readme_files/images/grid_misalignment_issue_solved.png)
 
 ## DEPLOYMENT
-### Github pages
-The website was deployed onto GitHub via the following steps: 
-1. Logging into my GitHub account and creating a new repository
-2. Under the subheading ‘Repository template’, I chose the template given to me by Code Institute from the drop-down menu
-3. I named my repository under the subheading ‘Repository name’ and then clicked on the green button named ‘Create repository’.
-4. Once the repository was created, I was lead to my repository page. From here, I clicked on the ‘Settings’ button near the top of the page
-5. Scroll down to the ‘GitHub Pages’ section and click on the text, ‘Check it out here!’, which will be in blue
-6. Under the subheading ‘Source’, click on its only drop-down menu and select ‘Master’ and then click on the button ‘Save’
-7. The repository webpage will now have been created and the link will now be shown to you for your use
-
 ### Making A Local Clone
 You may want to have access via a copy of the repository on your own device. There are three ways to do this: 
 * Method 1
