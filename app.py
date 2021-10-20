@@ -57,6 +57,7 @@ def register():
 
         # Creating a cookie for the new user
         session["this_user"] = request.form.get("username")
+        flash("You are one of us now")
 
         # Taking new user to their Profile page
         return redirect(url_for("profile", username=session["this_user"]))
@@ -120,6 +121,7 @@ def profile(username):
 @app.route("/logout")
 def logout():
     session.pop("this_user")
+    flash("You have logged out")
     return redirect(url_for("home"))
 
 
@@ -149,6 +151,7 @@ def add_recipe():
             "recipe_image_url": request.form.get("recipe_image_url")
         }
         mongo.db.recipes.insert_one(new_recipe)
+        flash("You have added a recipe")
 
         # Taking new user to their Profile page
         return redirect(url_for("profile", username=session["this_user"]))
@@ -209,6 +212,8 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove(
         {"_id": ObjectId(recipe_id)}
     )
+
+    flash("Recipe deleted")
     return redirect(url_for("my_recipes"))
 
 
@@ -235,6 +240,8 @@ def edit_recipe(recipe_id):
             "recipe_duration": request.form.get("recipe_duration"),
             "recipe_image_url": request.form.get("recipe_image_url")
             }})
+        
+        flash("Recipe edited")
         return redirect(url_for("all_recipes"))
 
     # Fields will be prefilled with information from here
@@ -319,6 +326,8 @@ def remove_account(user_id):
     )
     session.pop("this_user")
 
+    flash("You are no longer one of us")
+
     return redirect(url_for('home'))
 
 
@@ -332,9 +341,6 @@ def error401():
 # ------------------- Error 404 page (templates/error401.html)
 @app.route("/error404")
 def error404():
-    if session.get("this_user"):
-        session.pop("this_user")
-
     flash("Page not found")
     return render_template("error404.html")
 
