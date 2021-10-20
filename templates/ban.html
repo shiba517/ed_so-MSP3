@@ -23,14 +23,32 @@
             </div>
             <div class="row">
                 <div class="col s12 center">
-                    <button class="btn-flat btn-large ncc-btn red darken-4" type="submit">
-                        <a class="">ban</a>
-                    </button>
+                    <a href="#delete_message" class="btn-flat btn-large ncc-btn modal-trigger ">yes</a>
+        
+                    <!-- Modal for deleting a recipe -->
+                    <div id="delete_message" class="modal ncc-modal-decoration">
+                        <div class="modal-conent center-align">
+                            <h4>Remove?</h4>
+                            <p>Clicking yes will permanently remove this user</p>
+                            <button class="btn-flat btn-small ncc-btn red darken-4" type="submit">
+                                <a class="">yes</a>
+                            </button>
+                            <a class="modal-close btn-small btn-flat ncc-btn">No</a>
+                        </div>
+                    </div>
                 </div>
-            </div> 
+            </div>
+            
         </form>
     </div> 
-         
 </div>
+
+<!-- <div class="row">
+    <div class="col s12 center">
+        <button class="btn-flat btn-large ncc-btn red darken-4" type="submit">
+            <a class="">ban</a>
+        </button>
+    </div>
+</div>  -->
 
 {% endblock %}

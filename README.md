@@ -50,8 +50,7 @@ Intended features:
 Content: 
 * Simple appearance  
 * Engaging writing 
-Future features: 
-* To be able to leave comments/reviews of the recipes 
+
 
 ### Structure
 A non-linear structure/navigation will be used as there will be a few links. The host of recipes will be the main reason as it will not nice for the viewer to see every recipe; with all its details, in a nonlinear structure.
@@ -122,6 +121,7 @@ Font:
 * A logo that is not a icon from fontawsome.com
 * To be able to display recipes in specefic orders such as by name, name of poster etc
 * Adding a favourite/save for later section
+* A pagination might be useful once the website becomes popular and hundreds, thousands or millions of recipes are added to the database
 
 
 ## TECHNOLOGIES USED
