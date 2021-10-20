@@ -52,7 +52,7 @@ def register():
         session["this_user"] = request.form.get("username")
 
         # Taking new user to their Profile page
-        return redirect(url_for("profile", username=session["this_user"])
+        return redirect(url_for("profile", username=session["this_user"]))
 
     return render_template("register.html")
 
