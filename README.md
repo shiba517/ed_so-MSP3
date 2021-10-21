@@ -149,186 +149,202 @@ AIM | Achieved?
 As a first time visitor, I want to be able to easily find and see a host of recipes | yes
 As a first time visitor, visuals and design of the website must entice me to explore the website | yes 
 As a first time visitor, I want to see details of the selected recipe in an easy to view layout | yes 
-As a first time visitor, I should be acknowledged of any dietary elements to the recipe such as meat-free | not yet 
+As a first time visitor, I should be acknowledged of any dietary elements to the recipe such as meat-free | no 
 As a returning visitor, I want to be able to know which recipes I have made  | yes 
 As a returning visitor, I want to be given suggestions of which recipes to cook  | yes 
 As a returning visitor, I want to be able to add to the host of recipes with my own recipes  | yes 
 As a returning visitor, I want to be able to edit and delete my entries  | yes 
 As a returning visitor, I want to search for recipes and even the poster/other users  | yes 
-As a frequent visitor, I want to save recipes for later viewings  | not yet
+As a frequent visitor, I want to save recipes for later viewings  | no
 As a frequent visitor, I want to see more and more recipes added to the database  | yes 
-As an admin, I want to maintain the website  | not yet
-As an admin, I want to to have the option to delete certain recipes and members | not yet 
+As an admin, I want to maintain the website  | yes
+As an admin, I want to to have the option to delete certain recipes and members | yes
 
 ### CRUD (create, read, update, and delete) testing
 AIM | Mobile | Tablet | Laptop | Large monitor
 --- | --- | --- | --- | --- |
 Can a user create a recipe? | yes 
-Can a user read(view) a recipe? | yes 
+Can a user read/view a recipe? | yes 
 Can a user update a recipe? | yes 
 Can a user delete a recipe? | yes 
 
 ### Home page testing (home.html)
 AIM | Achieved?
 --- | --- |
-Any user clicking on 'more' button will lead to a smoothe scrolldown to the 'how it works' section of the homepage
-Any user can click on the 'register' button
-Any user clicking on either 'register' buttons will lead to the register.html
-Any user clicking on 'login' button will lead to login.html
-'register' button will not appear when a user is logged in
+Any user clicking on 'more' button will lead to a smoothe scrolldown to the 'how it works' section of the homepage | yes
+Any user clicking on either 'register' buttons will lead to the register.html | yes
+Any user clicking on 'login' button will lead to login.html | yes
+'register' button will not appear when a user is logged in | yes
 
-### Navbar testing
+### Navbar testing (base.html)
 AIM | Achieved?
 --- | --- |
-Clicking on the logo will lead user to the home.html
-When user is not logged in, only link that will appear will be 'All recipes', 'Login', and 'Register'
-When user is logged in, the links on show will be 'All recipes', 'Random', 'Profile', and 'Logout'
-Clicking on 'logout' will lof the user out if his/her account and back to home.html
+Clicking on the logo will lead user to the home.html | yes
+When user is not logged in, only link that will appear will be 'Home', 'All recipes', 'Login', and 'Register' | yes
+When user is logged in, the links on show will be 'Home, 'All recipes', 'Random', 'Profile', and 'Logout' | yes
+Clicking on 'logout' will lof the user out if his/her account and back to home.html | yes
+If log out is successful, a flash should appear with the text "You have logged out" | yes
 
-### Register testing
+### Register testing (register.html)
 AIM | Achieved?
 --- | --- |
-'username' will only take in aplabetical characters(upper and lower case) and numbers
-'username' will only take upto 20 characters
-'username' will take a minimum of 5 characters
-'password' will only take in aplabetical characters(upper and lower case) and numbers
-'password' will take a minimum of 5 characters
-'password' will only take upto 20 characters
-Clicking on 'login from here' will take the user to the login.html
-Clicking on 'sign up' will update the intended mongo database (mongo.db.users)
-Clicking on 'sing up' will also taek the user to their profile page (profile.html)
+'username' will only take in aplabetical characters(upper and lower case) and numbers | yes
+'username' will only take upto 20 characters | yes
+'username' will take a minimum of 5 characters | yes
+'password' will only take in aplabetical characters(upper and lower case) and numbers | yes
+'password' will take a minimum of 5 characters | yes
+'password' will only take upto 20 characters | yes
+Clicking on 'login from here' will take the user to the login.html | yes
+Clicking on 'sign up' will update the intended mongo database (mongo.db.users) | yes
+Clicking on 'sing up' will also taek the user to their profile page (profile.html) | yes
 
-### Login testing
+### Login testing (login.html)
 AIM | Achieved?
 --- | --- |
-'username' will only take in aplabetical characters(upper and lower case) and numbers
-'username' will only take upto 20 characters
-'username' will take a minimum of 5 characters
-'password' will only take in aplabetical characters(upper and lower case) and numbers
-'password' will take a minimum of 5 characters
-'password' will only take upto 20 characters
-Clicking on 'register from here' will take the user to the login.html
-Clicking on 'login' will also take the user to their profile page (profile.html) if successful
-If clicking on 'login' and app.py did not find a match in the details entered, a flash message of "Username and/or password is incorrect" will appear
-If clicking on 'login' and app.py did not find a match in the details entered, details entered will be cleared from the form
+'username' will only take in aplabetical characters(upper and lower case) and numbers | yes
+'username' will only take upto 20 characters | yes
+'username' will take a minimum of 5 characters | yes
+'password' will only take in aplabetical characters(upper and lower case) and numbers | yes
+'password' will take a minimum of 5 characters | yes
+'password' will only take upto 20 characters | yes
+Clicking on 'register from here' will take the user to the login.html | yes
+Clicking on 'login' will also take the user to their profile page (profile.html) if successful | yes
+If clicking on 'login' and app.py did not find a match in the details entered, a flash message of "Username and/or password is incorrect" will appear | yes
+If clicking on 'login' and app.py did not find a match in the details entered, details entered will be cleared from the form | yes
 
-### Profile testing
+### Profile testing (profile.html)
 AIM | Achieved?
 --- | --- |
-Username of the user will appear near the top of the page
-Buttons of 'Add', 'Mine', 'Random' and 'Bye' will appear on screen
-Clicking on 'add' will take user to the add_recipe.html
-Clicking on 'mine' will take user to the my_recipes.html
-Clicking on 'random' will take user to the random_recipes.html
-Clicking on 'bye' will lead to a modal appearing
-The modal will ask 'Delete?' with a follow message 'Clicking yes will permanently delete your account and all your recipes'
-Clicking on 'no' will remove the modal
-Clicking on 'yes' will delete the user from the intended monog database (mongo.db.users)
-Clicking on 'yes' will also lead the user back to the home.html
-On the right will be a card of the most popular recipe based on the ammount of likes
+Username of the user will appear near the top of the page | yes
+Buttons of 'Add', 'Mine', 'Random' and 'Bye' will appear on screen | yes
+Clicking on 'add' will take user to the add_recipe.html | yes
+Clicking on 'mine' will take user to the my_recipes.html | yes
+Clicking on 'random' will take user to the random_recipes.html | yes
+Clicking on 'bye' will lead to a modal appearing | yes
+The modal will ask 'Delete?' with a follow message 'Clicking yes will permanently delete your account and all your recipes' | yes
+Clicking on 'no' will remove the modal | yes
+Clicking on 'yes' will delete the user from the intended monog database (mongo.db.users) | yes
+Clicking on 'yes' will also lead the user back to the home.html | yes
+A flash message of "You are no longer one of us" should appear | yes
+A card of the most popular recipe based on the ammount of likes will also be on show | yes
 
-### All recipes testing
+### All recipes testing (all_recipes.html)
 AIM | Achieved?
 --- | --- |
-A host of cards should appear containing a picture, title, information regarding likes, servings, and cooking duration from the mongo database (mongo.db.recipes)
-Quantity of cards on show will match the quantity of entries in the mongo database that it is coming from
-Clicking on the 'i' icon should lead to another card sliding up contained the name of the recipe and the description
-Clicking on 'lets make this' will lead teh user to chosen_recipe.html
-If user is not logged in, 'like' icon will not be functional
-If user is not logged in, 'lets make this' link will not be visible
+A host of cards should appear containing a picture, title, information regarding likes, servings, and cooking duration from the mongo database (mongo.db.recipes) | yes
+Quantity of cards on show will match the quantity of entries in the mongo database that it is coming from | yes
+Clicking on the 'i' icon should lead to another card sliding up contained the name of the recipe and the description | yes
+Clicking on the 'i' icon when the sliding happens should slide it back down | yes
+'lets make this' should not be visible if the user is not logged in | yes
+If logged in, 'lets make this' should be visible | yes
+Clicking on 'lets make this' will lead teh user to chosen_recipe.html with detials of the chosen card | yes
 
 ### Chosen recipes
 AIM | Achieved?
 --- | --- |
-Image of recipe should be near the upper left of the scren
-Recipe name, username, creation date, likes, servings, cooking curation, and recipe description should appear near the upper right of the screen
-Clicking on the 'like' icon (heart) will increment the number below it by 1
-Recipe ingredients list should appear near the lower left of the screen
-Recipe instructions list should appear near the lower right of the screen
-Recipe ingredints will appear in an unordered list format
-Recipe instructions will appear in an ordered list format
-Bottom corner of the screen should have a 'plus' icon if the recipes was posted by the user logged in
-Clicking on the 'plus' icon will lead to the icons of 'delete' and 'edit' to appear
-Clicking on the 'edit' icon will lead user to the edit_recipe.html
-Clicking on 'delete' icon will lead to a modal appearing
-The modal will ask 'Delete?' with a follow message 'Clicking yes will permanently delete this recipe'
-Clicking on 'no' will remove the modal
-Clicking on 'yes' will delete the recipe from the intended monog database (mongo.db.recipes)
-clicking on 'yes' will also lead the user back to the all_recipes.html
+Image of recipe should be near the top | yes
+Recipe name, username, creation date, likes, servings, cooking curation, and recipe description should appear near the upper right of the screen if on a medium+ sized screen | n/a
+If nothing has been entered for the recipes image url, a [default image](static/images/default_recipe_image.jpg) should appear | yes
+Recipe name, username, creation date, likes, servings, cooking curation, and recipe description should appear one below the other in that order on a small(medium-) sized screen | yes
+Clicking on the 'like' icon (heart) will increment the number below it by 1 | yes
+Recipe ingredients list should appear near the lower left of the screen on a medium+ sized screen | n/a
+Recipe instructions list should appear near the lower right of the screen on a medium+ sized screen | n/a
+Recipe ingredints will appear in an unordered list format | yes
+Recipe instructions will appear in an ordered list format | yes
+Bottom corner of the screen should have a 'plus' icon if the recipes was posted by the user logged in | yes
+Clicking on the 'plus' icon will lead to the icons of 'delete' and 'edit' to appear | yes
+Clicking on the 'edit' icon will lead user to the edit_recipe.html | yes
+Clicking on 'delete' icon will lead to a modal appearing | yes
+The modal will ask 'Delete?' with a follow message 'Clicking yes will permanently delete this recipe' | yes
+Clicking on 'no' will remove the modal | yes
+Clicking on 'yes' will delete the recipe from the intended monog database (mongo.db.recipes) | yes
+clicking on 'yes' will also lead the user back to the all_recipes.html | yes
 
 ### Edit recipe
 AIM | Achieved?
 --- | --- |
-Each field on the form should match the information on the mongo databse of the recipe chosen to edit
-Clicking on any field should give the user the ability to change the inputs
-Clicking on 'edit' will update the informatino of that recipe in the mongo database
-Clicking on 'edit' will also then lead the user to the all_recipes.html
-Changed information of edited recipe should be visible in ohter pages the recipe appears in (all_recipes.html, chosen_recipes.html, and my_recipes.html)
+Each field on the form should match the information on the mongo databse of the recipe chosen to edit | yes
+Clicking on any field should give the user the ability to change the inputs | yes
+Clicking on 'edit' will update the informatino of that recipe in the mongo database | yes
+Clicking on 'edit' will also then lead the user to the all_recipes.html | yes
+Changed information of edited recipe should be visible in ohter pages the recipe appears in (all_recipes.html, chosen_recipes.html, and my_recipes.html) | yes
 
-### Add recipe testing
+### Add recipe testing (add_recipe.html)
 AIM | Achieved?
 --- | --- |
-'recipe name' field should take in any characters
-'recipe name' will take upto 100 characters in length
-'recipe description' field will take in any characters
-'recipe description' field size should accomodate the entered information
-'recipe ingredients' field will take in any characters
-'recipe ingredients' field size should accomodate the entered information
-'recipe instructions' field will take in any characters
-'recipe instructions' field size should accomodate the entered information
-'recipe image url' field will take in url text
-'recipe imahe url' field size should accomodate the entered information
-'servings' will only take in numbers
-'servings' will take in a number of maximum of 2 digits long
-'duration' will only take in numbers
-'duration' will take in a number of maximum of 4 digits long
-Clicking on 'share' will update the relevant mongo database
-Clicking on 'share' will also lead teh user to the all_recipes.html
+'recipe name' field should take in any characters | yes
+'recipe name' will take upto 100 characters in length | yes
+'recipe description' field will take in any characters | yes
+'recipe description' field size should accomodate the entered information | yes
+'recipe ingredients' field will take in any characters | yes
+'recipe ingredients' field size should accomodate the entered information | yes
+'recipe instructions' field will take in any characters | yes
+'recipe instructions' field size should accomodate the entered information | yes
+'recipe image url' field will take in url text | yes
+'recipe imahe url' field size should accomodate the entered information | yes
+'recipe image url' is not a required field | yes
+'servings' will only take in numbers | yes
+'servings' will take in a number of maximum of 2 digits long | yes
+'servings' will take in a number of minimum of 1 digit | yes
+'duration' will only take in numbers | yes
+'duration' will take in a number of maximum of 3 digits long | yes
+'duration' will take in a number of minimum of 1 digit | yes
+Clicking on 'share' will update the relevant mongo database | yes
+Clicking on 'share' will also lead teh user to the all_recipes.html | yes
+Flash message of "Recipe has been added" should appear | yes
+
+### Edit recipe testing (edit_recipe.html)
+All fields should be prefilled witht he details of the chosen recipe to edit | yes
+Clicking on the 'edit' button should update the details of that recipe on the mongo database with the new/edited details | yes
+Clicking on the 'edit' button should lead the user to the my_recipe.html | yes
+Flash message of "Recipe hsa been updated" should appear | yes
 
 ### My recipes testing
 AIM | Achieved?
 --- | --- |
-All recipe cards on show will be recipes posted by the user
+All recipe cards on show will be recipes posted by the user | yes
 
 ### Random recipes testing
 AIM | Achieved?
 --- | --- |
-Three cards will be on show
-Recipe cards will change each time random.html is clicked
+Three cards will be on show | yes
+Recipe cards will change each time random.html is clicked | yes
 
 ### Admin testing
 AIM | Achieved?
 --- | --- |
-Ability to edit any recipe
-Ability to delete any recipe
-'bye' button will not be visible in profile.html
-'ban' button will be visible in profile.html
-On ban.html, entered user will be deleted from teh mongo database
-The deleted user will also have all theri recipes deleted from the mongo database
-If user does not exist, flash message of "user does not exist" will appear
+Ability to edit any recipe | yes
+Ability to delete any recipe | yes
+'bye' button will not be visible in profile.html | yes
+'ban' button will be visible in profile.html | yes
+On ban.html, entered user will be deleted from teh mongo database | yes
+The deleted user will also have all theri recipes deleted from the mongo database | yes
+A flash message of "that chef has been fired" should appear | yes
+A flash message of "user does not exist" should appear if user does not exist | yes
+The form should be cleared of previous entry | yes
 
 ### Security testing
 AIM | Achieved?
 --- | --- |
-When logging out, session cookie of user will be deleted
-If session cookie of user is not in storage whilst navigating away from the 'profile' page whilst logged in, page will lead to an error 401 page
-If session cookie of user is not in storage whilst navigating away from the 'all recipes' page whilst logged in, page will lead to an error 404 page
-If session cookie of user is not in storage whilst navigating away from the 'random recipes' page whilst logged in, page will lead to an error 404 page
-If session cookie of user is not in storage whilst navigating away from the 'add recipe' page whilst logged in, page will lead to an error 404 page
-If session cookie of user is not in storage whilst submittin a form from the 'add_recipe' page whilst logged in, page will lead to an error 401 page
-If session cookie of user is not in storage whilst submittin a form from the 'add_recipe' page whilst logged in, relevant mongo database will not be updated
-If session cookie of user is not in storage whilst navigating away from the 'my recipes' page whilst logged in, page will lead to an error 401 page
-If session cookie of user is not in storage whilst navigating away from the 'chosen recipe' page whilst logged in, page will lead to an error 401 page
-If session cookie of user is not in storage whilst navigating away from the 'edit recipe' page whilst logged in, page will lead to an error 404 page
-If session cookie of user is not in storage whilst submittin a form from the 'edit_recipe' page whilst logged in, page will lead to an error 401 page
-If session cookie of user is not in storage whilst submittin a form from the 'edit_recipe' page whilst logged in, relevant mongo database will not be updated
-If session cookie of user is not in storage whilst clicking on the 'delete' button and then followed by the 'yes' button in the 'profile' page, page will lead to an error 404 page
-If session cookie of user is not in storage whilst clicking on 'yes' to delete the account, the relevant mongo database will not be updated
+When logging out, session cookie of user will be deleted | yes
+If session cookie of the user is not in storage when navigating to the profile.html, page will lead to the error401.html | yes
+If session cookie of the user is not in storage when navigating to the all_recipes.html, page will load up the same way as non logged in user would see it | yes
+If session cookie of the user is not in storage when navigating to the random_recipes.html, page will lead to the error404.html | yes
+If session cookie of the user is not in storage when navigating to the my_recipes.html, page will lead to the error401.html | yes
+If session cookie of the user is not in storage when navigating to the chosen_recipe.html, page will lead to the error401.html | yes
+If session cookie of the user is not in storage when navigating to the chosen_recipe.html, page will lead to the error401.html | yes
+If session cookie of the user is not in storage when navigating to the edit_recipe.html, page will lead to the error401.html | yes
+If session cookie of the user is not in storage when clicking 'edit' on the edit_recipe.html, page will lead to the error404.html | yes
+If details of the session cookie of the user does not match the chosen recipe for editing, page will lead to the error401.html | yes
+If session cookie of the user is not in storage when navigating to the add_recipe.html, page will lead to the error401.html | yes
+If session cookie of the user is not in storage when clicking 'share' on the edit_recipe.html, page will lead to the error404.html | yes
+If session cookie of the user is not in storage when clicking 'bye' > 'yes' in the profile.html, page will lead to the error404.html | yes
+Relevant MongoDB database will not be updated when this happens | yes
+If session cookie of the admin is not in storage when clicking 'ban' > 'yes' in the ban.html, page will lead to the error404.html | yes
 
 ### Responsive testing
 #### Google Chrome
- | Solved? | How?
---- | --- | --- |
+
 
 ### Bugs and fixes
 Problem | Solved? | How?

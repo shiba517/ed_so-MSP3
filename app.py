@@ -188,7 +188,7 @@ def add_recipe():
             "recipe_image_url": request.form.get("recipe_image_url")
         }
         mongo.db.recipes.insert_one(new_recipe)
-        flash("You have added a recipe")
+        flash("Recipe has been added")
 
         # Taking new user to their Profile page
         return redirect(url_for("profile", username=session["this_user"]))
