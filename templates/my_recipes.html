@@ -33,7 +33,7 @@
         {% if each_recipe.created_by == session.this_user %}
         <div class="col s12 m6 l4">
             <!-- Recipe card containing limited information -->
-            <div class="card large hoverable ncc-recipeCard-decoration"">
+            <div class="card large hoverable ncc-recipeCard-decoration">
                 <div class="card-image">
                     {% if not each_recipe.recipe_image_url %}
                     <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="defualt image of a recipe">

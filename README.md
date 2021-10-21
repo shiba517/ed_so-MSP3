@@ -144,6 +144,26 @@ Font:
 * W3C CSS Validator - detects any errors in .css files
 
 ## TESTING
+### Code validation
+#### HTML Validator
+File | Results 1 | Corrections (if needed) | Notes
+--- | --- |--- | --- |
+base.html | [image1](readme_files/images/base_html_validation_before_p1.png), [image2](readme_files/images/base_html_validation_before_p1.png)
+add_recipe.html | [image1](readme_files/images/add_recipe_html_validation_before_p1.png) | [image1](readme_files/images/add_recipe_html_validation_after_p1.png) | Mentioned pattern for 'image url' should not have a 'pattern'. Did not follow advice at it is needed
+all_recipes.html | [image1](readme_files/images/all_recipes_html_validation_before_p1.png)
+ban.html | [image1](readme_files/images/ban_html_validation_before_p1.png) | [image1](readme_files/images/ban_html_validation_after_p1.png)
+chosen_recipe.html | [image1](readme_files/images/chosen_recipe_html_validation_before_p1.png), [image2](readme_files/images/chosen_recipe_html_validation_before_p2.png)
+edit_recipe.html | [image1](readme_files/images/edit_recipe_html_validation_before_p1.png) | [image1](readme_files/images/edit_recipe_html_validation_after_p1.png) | Mentioned pattern for 'image url' should not have a 'pattern'. Did not follow advice at it is needed
+error401.html | [image1](readme_files/images/error401_html_validation_before_p1.png)
+error404.html | [image1](readme_files/images/error404_html_validation_before_p1.png)
+home.html [image1](readme_files/images/home_html_validation_before_p1.png)
+login.html | [image1](readme_files/images/login_html_validation_before_p1.png) | [image1](readme_files/images/login_html_validation_after_p1.png)
+my_recipes.html | [image1](readme_files/images/my_recipes_html_validation_before_p1.png) | [image1](readme_files/images/my_recipes_html_validation_after_p1.png)
+profile.html | [image1](readme_files/images/profile_html_validation_before_p1.png)
+random_recipes.html | [image1](readme_files/images/random_recipes_html_validation_before_p1.png)
+register.html | [image1](readme_files/images/register_html_validation_before_p1.png) | [image1](readme_files/images/register_html_validation_after_p1.png)
+
+
 ### User stories testing
 AIM | Achieved?
 --- | --- |
@@ -353,7 +373,6 @@ If session cookie of the user is not in storage when clicking 'share' on the edi
 If session cookie of the user is not in storage when clicking 'bye' > 'yes' in the profile.html, page will lead to the error404.html | yes | yes | yes
 Relevant MongoDB database will not be updated when this happens | yes | yes | yes
 If session cookie of the admin is not in storage when clicking 'ban' > 'yes' in the ban.html, page will lead to the error404.html | yes | yes | yes
-
 
 ### Bugs and fixes
 Problem | Solved? | How?
