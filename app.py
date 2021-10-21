@@ -188,7 +188,7 @@ def add_recipe():
             "recipe_image_url": request.form.get("recipe_image_url")
         }
         mongo.db.recipes.insert_one(new_recipe)
-        flash("Recipe has been added")
+        flash("Recipe has been")
 
         # Taking new user to their Profile page
         return redirect(url_for("profile", username=session["this_user"]))
@@ -222,7 +222,9 @@ def chosen_recipe(recipe_id):
     recipe_instructions = this_recipe["recipe_instructions"]
     recipe_instructions_into_list = re.split("\*", recipe_instructions)
 
-    return render_template("chosen_recipe.html", recipe=this_recipe, ingredients=recipe_ingredients_into_list, instructions=recipe_instructions_into_list)
+    return render_template("chosen_recipe.html", recipe=this_recipe, 
+        ingredients=recipe_ingredients_into_list, 
+        instructions=recipe_instructions_into_list)
 
 
 # ------------------- My recipes page (templates/my_recipes.html)
@@ -348,7 +350,8 @@ def search():
     if not session.get("this_user"):
         return redirect(url_for("error404"))
 
-    return render_template("all_recipes.html", recipes=all_recipes, search_message=search_message.format(len(all_recipes)))
+    return render_template("all_recipes.html", recipes=all_recipes, 
+        search_message=search_message.format(len(all_recipes)))
 
 
 # ------------------- Remove account (templates/profile.html)
