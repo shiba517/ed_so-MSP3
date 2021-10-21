@@ -145,9 +145,9 @@ Font:
 
 ## TESTING
 ### Code validation
-#### HTML Validator
+HTML Validator
 File | Results 1 | Corrections (if needed) | Notes
---- | --- |--- | --- |
+--- | --- | --- | --- |
 base.html | [image1](readme_files/images/base_html_validation_before_p1.png), [image2](readme_files/images/base_html_validation_before_p1.png)
 add_recipe.html | [image1](readme_files/images/add_recipe_html_validation_before_p1.png) | [image1](readme_files/images/add_recipe_html_validation_after_p1.png) | Mentioned pattern for 'image url' should not have a 'pattern'. Did not follow advice at it is needed
 all_recipes.html | [image1](readme_files/images/all_recipes_html_validation_before_p1.png)
@@ -162,6 +162,9 @@ my_recipes.html | [image1](readme_files/images/my_recipes_html_validation_before
 profile.html | [image1](readme_files/images/profile_html_validation_before_p1.png)
 random_recipes.html | [image1](readme_files/images/random_recipes_html_validation_before_p1.png)
 register.html | [image1](readme_files/images/register_html_validation_before_p1.png) | [image1](readme_files/images/register_html_validation_after_p1.png)
+
+CSS Validator
+[image1](readme_files/images/style_css_validation.png) - no errors found
 
 
 ### User stories testing
@@ -198,8 +201,8 @@ Any user clicking on 'login' button will lead to login.html | yes | yes | yes
 'register' button will not appear when a user is logged in | yes | yes | yes
 
 ### Navbar testing (base.html)
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 Clicking on the logo will lead user to the home.html | yes | yes | yes
 When user is not logged in, only link that will appear will be 'Home', 'All recipes', 'Login', and 'Register' | yes | yes | yes
 When user is logged in, the links on show will be 'Home, 'All recipes', 'Random', 'Profile', and 'Logout' | yes | yes | yes
@@ -207,8 +210,8 @@ Clicking on 'logout' will lof the user out if his/her account and back to home.h
 If log out is successful, a flash should appear with the text "You have logged out" | yes | yes | yes
 
 ### Register testing (register.html)
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 'username' will only take in aplabetical characters(upper and lower case) and numbers | yes | yes | yes
 'username' will only take upto 20 characters | yes | yes | yes
 'username' will take a minimum of 5 characters | yes | yes | yes
@@ -220,8 +223,8 @@ Clicking on 'sign up' will update the intended mongo database (mongo.db.users) |
 Clicking on 'sing up' will also taek the user to their profile page (profile.html) | yes | yes | yes
 
 ### Login testing (login.html)
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 'username' will only take in aplabetical characters(upper and lower case) and numbers | yes | yes | yes
 'username' will only take upto 20 characters | yes | yes | yes
 'username' will take a minimum of 5 characters | yes | yes | yes
@@ -234,8 +237,8 @@ If clicking on 'login' and app.py did not find a match in the details entered, a
 If clicking on 'login' and app.py did not find a match in the details entered, details entered will be cleared from the form | yes | yes | yes
 
 ### Profile testing (profile.html)
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 Username of the user will appear near the top of the page | yes | yes | yes
 Buttons of 'Add', 'Mine', 'Random' and 'Bye' will appear on screen | yes | yes | yes
 Clicking on 'add' will take user to the add_recipe.html | yes | yes | yes
@@ -250,8 +253,8 @@ A flash message of "You are no longer one of us" should appear | yes | yes | yes
 A card of the most popular recipe based on the ammount of likes will also be on show | yes | yes | yes
 
 ### All recipes testing (all_recipes.html)
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 A host of cards should appear containing a picture, title, information regarding likes, servings, and cooking duration from the mongo database (mongo.db.recipes) | yes | yes | yes
 Quantity of cards on show will match the quantity of entries in the mongo database that it is coming from | yes | yes | yes
 There should be three cards on each row for large+ sized screen | n/a | n/a  | yes
@@ -264,8 +267,8 @@ If logged in, 'lets make this' should be visible | yes | yes | yes
 Clicking on 'lets make this' will lead teh user to chosen_recipe.html with detials of the chosen card | yes | yes | yes
 
 ### Chosen recipes (chosen_recipe.html)
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 Image of recipe should be near the top | yes | yes | yes
 Recipe name, username, creation date, likes, servings, cooking curation, and recipe description should appear near the upper right of the screen if on a large+ sized screen | n/a | n/a | yes
 If nothing has been entered for the recipes image url, a [default image](static/images/default_recipe_image.jpg) should appear | yes  | yes | yes
@@ -286,8 +289,8 @@ Clicking on 'yes' will delete the recipe from the intended monog database (mongo
 clicking on 'yes' will also lead the user back to the all_recipes.html | yes | yes | yes
 
 ### Edit recipe
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 Each field on the form should match the information on the mongo databse of the recipe chosen to edit | yes | yes | yes
 Clicking on any field should give the user the ability to change the inputs | yes | yes | yes
 Clicking on 'edit' will update the informatino of that recipe in the mongo database | yes | yes | yes
@@ -295,8 +298,8 @@ Clicking on 'edit' will also then lead the user to the all_recipes.html | yes | 
 Changed information of edited recipe should be visible in ohter pages the recipe appears in (all_recipes.html, chosen_recipes.html, and my_recipes.html) | yes | yes | yes
 
 ### Add recipe testing (add_recipe.html)
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 'recipe name' field should take in any characters | yes | yes | yes
 'recipe name' will take upto 100 characters in length | yes | yes | yes
 'recipe description' field will take in any characters | yes | yes | yes
@@ -319,32 +322,32 @@ Clicking on 'share' will also lead teh user to the all_recipes.html | yes | yes 
 Flash message of "Recipe has been added" should appear | yes | yes | yes
 
 ### Edit recipe testing (edit_recipe.html)
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 All fields should be prefilled witht he details of the chosen recipe to edit | yes | yes | yes
 Clicking on the 'edit' button should update the details of that recipe on the mongo database with the new/edited details | yes | yes | yes
 Clicking on the 'edit' button should lead the user to the my_recipe.html | yes | yes | yes
 Flash message of "Recipe hsa been updated" should appear | yes | yes | yes
 
 ### My recipes testing
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 All recipe cards on show will be recipes posted by the user | yes | yes | yes
 There should be three cards on each row for large+ sized screen | n/a | n/a  | yes
 There should be two cards on each row in a medium sized screen | yes | yes | n/a
 There should be one card on each row in a small- sized screen | yes | n/a | n/a
 
 ### Random recipes testing
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 Three cards will be on show | yes | yes | yes
 There should be three cards on each row for large+ sized screen | n/a | n/a  | yes
 There should be one card on each row in a medium- sized screen | yes | yes | n/a
 Recipe cards will change each time random.html is clicked | yes | yes | yes
 
 ### Admin testing
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 Ability to edit any recipe | yes | yes | yes
 Ability to delete any recipe | yes | yes | yes
 'bye' button will not be visible in profile.html | yes | yes | yes
@@ -356,10 +359,11 @@ A flash message of "user does not exist" should appear if user does not exist | 
 The form should be cleared of previous entry | yes | yes | yes
 
 ### Security testing
-AIM | Mobile | Tablet
---- | --- | ---|
+AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
+--- | --- | --- | --- |
 When logging out, session cookie of user will be deleted | yes | yes | yes
 If session cookie of the user is not in storage when navigating to the profile.html, page will lead to the error401.html | yes | yes | yes
+If session cookie of the user does not match the user in the url, page will lead to the error401.html | yes | yes | yes
 If session cookie of the user is not in storage when navigating to the all_recipes.html, page will load up the same way as non logged in user would see it | yes | yes | yes
 If session cookie of the user is not in storage when navigating to the random_recipes.html, page will lead to the error404.html | yes | yes | yes
 If session cookie of the user is not in storage when navigating to the my_recipes.html, page will lead to the error401.html | yes | yes | yes

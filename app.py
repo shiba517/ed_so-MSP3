@@ -32,7 +32,7 @@ def home():
 # ------------------- Register page (templates/register.html)
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    # For use when user registers and then persses teh back button on the window
+    # For use when user is logged in
     if session.get("this_user"):
         return render_template("home.html")
 
@@ -51,7 +51,8 @@ def register():
         new_user = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "register_date": datetime.datetime.now().strftime("%B " + "%d " + "%Y")
+            "register_date": datetime.datetime.now().strftime(
+                "%B " + "%d " + "%Y")
         }
         mongo.db.users.insert_one(new_user)
 
@@ -117,16 +118,17 @@ def login():
         # If username is in teh database
         if check_user_exists:
             # Checking if correct password has been entered
-            if check_password_hash(check_user_exists["password"], request.form.get("password")):
-                # Correct password was entered
-                session["this_user"] = request.form.get("username").lower()
-                return redirect(url_for("profile", username=session["this_user"]))
-
+            if check_password_hash(
+                check_user_exists["password"],
+                request.form.get("password")):
+                    # Correct password was entered
+                    session["this_user"] = request.form.get("username").lower()
+                    return redirect(url_for(
+                        "profile", username=session["this_user"]))
             # Incorrect password was entered
             else:
                 flash("Username and/or password was incorrect")
                 redirect(url_for("login"))
-
         # Incorrect username was entered
         else:
             flash("Username and/or password was incorrect")
@@ -140,6 +142,9 @@ def login():
 def profile(username):
     # For security reasons
     if not session.get("this_user"):
+        return redirect(url_for("error401"))
+
+    if session.get("this_user") != username:
         return redirect(url_for("error401"))
 
     # Detting the document of the user
@@ -181,7 +186,8 @@ def add_recipe():
             "recipe_ingredients": request.form.get("recipe_ingredients"),
             "recipe_instructions": request.form.get("recipe_instructions"),
             "created_by": session["this_user"],
-            "post_date": datetime.datetime.now().strftime("%B " + "%d " + "%Y"),
+            "post_date": datetime.datetime.now().strftime(
+                "%B " + "%d " + "%Y"),
             "likes": 0,
             "recipe_servings": request.form.get("recipe_servings"),
             "recipe_duration": request.form.get("recipe_duration"),
@@ -222,8 +228,9 @@ def chosen_recipe(recipe_id):
     recipe_instructions = this_recipe["recipe_instructions"]
     recipe_instructions_into_list = re.split("\*", recipe_instructions)
 
-    return render_template("chosen_recipe.html", recipe=this_recipe, 
-        ingredients=recipe_ingredients_into_list, 
+    return render_template("chosen_recipe.html",
+        recipe=this_recipe,
+        ingredients=recipe_ingredients_into_list,
         instructions=recipe_instructions_into_list)
 
 
@@ -234,7 +241,8 @@ def my_recipes():
     if not session.get("this_user"):
         return redirect(url_for("error401"))
 
-    # Getting the documents for all the recipes; will tehn be filtered in the my_recipes.html
+    # Getting the documents for all the recipes;
+    #  will then be filtered in the my_recipes.html
     all_recipes = mongo.db.recipes.find()
 
     return render_template("my_recipes.html", recipes=all_recipes)
@@ -280,7 +288,7 @@ def edit_recipe(recipe_id):
 
         # Will now update
         mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": {
-            "recipe_name": request.form.get("recipe_name"), 
+            "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
             "recipe_ingredients": request.form.get("recipe_ingredients"),
             "recipe_instructions": request.form.get("recipe_instructions"),
@@ -288,14 +296,14 @@ def edit_recipe(recipe_id):
             "recipe_duration": request.form.get("recipe_duration"),
             "recipe_image_url": request.form.get("recipe_image_url")
             }})
-        
         flash("Recipe has been edited")
         return redirect(url_for("my_recipes"))
 
     return render_template("edit_recipe.html", recipe=this_recipe)
 
 
-# ------------------- Like (templates/all_recipes.html, my_recipes.html, and random_recipes.html)
+# ------------------- Like (templates/all_recipes.html, my_recipes.html,
+#  and random_recipes.html)
 @app.route("/like/<recipe_id>")
 def like(recipe_id):
     # Clicking on the heart icon will increment the likes
@@ -307,7 +315,7 @@ def like(recipe_id):
 
 @app.route("/random_recipes")
 def random_recipes():
-    # For security reasons  
+    # For security reasons
     if not session.get("this_user"):
         return redirect(url_for("error404"))
 
@@ -338,20 +346,23 @@ def random_recipes():
     return render_template("random_recipes.html", recipes=random_recipes)
 
 
-# ------------------- Search (templates/all_recipe.html, my_recipes.html)
+# ------------------- Search (templates/all_recipe.html,
+#  my_recipes.html)
 @app.route("/search", methods=["GET", "POST"])
 def search():
     # Finding the wanted recipes
     find_this = request.form.get("query")
-    all_recipes = list(mongo.db.recipes.find({"$text": {"$search": find_this}}))
+    all_recipes = list(mongo.db.recipes.find({
+        "$text": {"$search": find_this}}))
 
     search_message = "We found {} matches for you"
 
     if not session.get("this_user"):
         return redirect(url_for("error404"))
 
-    return render_template("all_recipes.html", recipes=all_recipes, 
-        search_message=search_message.format(len(all_recipes)))
+    return render_template("all_recipes.html",
+            recipes=all_recipes,
+            search_message=search_message.format(len(all_recipes)))
 
 
 # ------------------- Remove account (templates/profile.html)
