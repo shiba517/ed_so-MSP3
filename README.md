@@ -309,7 +309,7 @@ AIM | Mobile (iPhone 6/7/8 Plus) | Tablet (iPad) | Laptop/PC monitor (Google Chr
 --- | --- | --- | --- | --- |
 Image of recipe should be near the top | yes | yes | yes | yes
 Recipe name, username, creation date, likes, servings, cooking curation, and recipe description should appear near the upper right of the screen if on a large+ sized screen | n/a | n/a | yes | yes
-If nothing has been entered for the recipes image url, a [default image](static/images/default_recipe_image.jpg) should appear | yes  | yes | yes
+If nothing has been entered for the recipes image url, a [default image](static/images/default_recipe_image.jpg) should appear | yes  | yes | yes | yes
 Recipe name, username, creation date, likes, servings, cooking curation, and recipe description should appear one below the other in that order on a medium- sized screen | yes  | yes | n/a | n/a
 Clicking on the 'like' icon (heart) will increment the number below it by 1 | yes | yes | yes | yes
 Recipe ingredients list should appear near the lower left of the screen on a large+ sized screen | n/a | n/a | yes | yes
