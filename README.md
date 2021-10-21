@@ -1,14 +1,45 @@
 # MILESTON PROJECT 3 - ēd šo
 
-## OVERVIEW
+![Mock-up of website shown across deifferent platforms](readme_files/images/mock_up.png)
+
+[Live project](https://ed-so-msp3.herokuapp.com/)
+
+## CONTENT
+- [Overview](#overview)
+- [User Experience](#user-experience)
+    * [Project goals](#project-goals)
+    * [User stories](#user-stories)
+- [The 5 Planes](#the-5-planes)
+    * [Strategy](#strategy)
+    * [Scope](#scope)
+    * [Structure](#structure)
+    * [Skeleton](#skeleton)
+    * [Surface](#surface)
+- [Features](#features)
+    * [Existing features](#existing-features)
+    * [Future features](#future-features)
+- [Technologies used](#technologies-used)
+- [Testing](#testing)
+    * [Code validation](#code-validation)
+    * [User stories testing](#user-stories-testing)
+    * [Cross platform testing](#cross-platform-testing)
+    * [Bugs and fixes](#bugs-and-fixes)
+- [Deployment](#deployment)
+- [Credits](#credits)
+    * [Conent](#content)
+    * [Media](#media)
+    * [Recipes](#recipes)
+- [Acknowledgement](#acknowledgement)
+- [Disclaimer](#disclaimer)
+    
+
+## **OVERVIEW**
 A study by Colin Camera from Caltech (https://www.caltech.edu/about/news/scientists-uncover-why-you-cant-decide-what-order-lunch-83881) found interesting results for humans with their decision when given a list of options. They found brain activity in the anterior cingulate cortex (ACC) and the striatum to be most active via an fMRI scan in an study where groups of participants were given different number of choices to choose from. From the results, Camera estimated that humans ideal number of choices will range from 8-15 depending on the type of choices.  
 
 Caltech have asked me to create an app/website that will help people make decision on what to cook by giving them a list of recipes.  
 
-[Live project](https://ed-so-msp3.herokuapp.com/)
-
-## USER EXPERIENCE (UX)
-### Project goals
+## **USER EXPERIENCE**
+### **Project goals**
 * To make a website where the user will be able to use a CRUD (create, read, update, and delete) function in the form of recipes 
 * The website must encourage the user to use the website again via its content (mainly recipes), appearance and ease of navigation
 
@@ -128,6 +159,8 @@ Font:
 ## TECHNOLOGIES USED
 * HTML
 * CSS
+* Jquery - a lightweight JavaScript library
+* Python - back-end programming language
 * Materialize - a .css library which also includes use of .js
 * MongoDB - Cloud based service focused on database management
 * Font awesome - a catalogue of icons for .html files
@@ -145,7 +178,7 @@ Font:
 
 ## TESTING
 ### Code validation
-HTML Validator
+[HTML Validator](https://validator.w3.org/)
 File | Results 1 | Corrections (if needed) | Notes
 --- | --- | --- | --- |
 base.html | [image1](readme_files/images/base_html_validation_before_p1.png), [image2](readme_files/images/base_html_validation_before_p1.png)
@@ -163,12 +196,12 @@ profile.html | [image1](readme_files/images/profile_html_validation_before_p1.pn
 random_recipes.html | [image1](readme_files/images/random_recipes_html_validation_before_p1.png)
 register.html | [image1](readme_files/images/register_html_validation_before_p1.png) | [image1](readme_files/images/register_html_validation_after_p1.png)
 
-CSS Validator
+[CSS Validator](https://jigsaw.w3.org/css-validator/)
 [image1](readme_files/images/style_css_validation.png) - no errors found
 
-PEP8 Validator
+[PEP8 Validator](http://pep8online.com/)
 [image1](readme_files/images/app_py_pep8_validation_before.png) - non PEP8 compliant
-[image2](readme_files/images/app_py_pep8_validation_after.png) - PEP8 compliant
+[image2](readme_files/images/app_py_pep8_validation_after.png) - now PEP8 compliant
 
 
 ### User stories testing
@@ -188,7 +221,8 @@ As a frequent visitor, I want to see more and more recipes added to the database
 As an admin, I want to maintain the website  | yes
 As an admin, I want to to have the option to delete certain recipes and members | yes
 
-### CRUD (create, read, update, and delete) testing
+### Cross platform testing
+## CRUD (create, read, update, and delete) testing
 AIM | Mobile | Tablet | Laptop | Large monitor
 --- | --- | --- | --- | --- |
 Can a user create a recipe? | yes  | yes | yes
@@ -196,7 +230,7 @@ Can a user read/view a recipe? | yes | yes | yes
 Can a user update a recipe? | yes | yes | yes
 Can a user delete a recipe? | yes | yes | yes
 
-### Home page testing (home.html)
+## Home page testing (home.html)
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 Any user clicking on 'more' button will lead to a smoothe scrolldown to the 'how it works' section of the homepage | yes | yes | yes
@@ -204,7 +238,7 @@ Any user clicking on either 'register' buttons will lead to the register.html | 
 Any user clicking on 'login' button will lead to login.html | yes | yes | yes
 'register' button will not appear when a user is logged in | yes | yes | yes
 
-### Navbar testing (base.html)
+## Navbar testing (base.html)
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 Clicking on the logo will lead user to the home.html | yes | yes | yes
@@ -213,7 +247,7 @@ When user is logged in, the links on show will be 'Home, 'All recipes', 'Random'
 Clicking on 'logout' will lof the user out if his/her account and back to home.html | yes | yes | yes
 If log out is successful, a flash should appear with the text "You have logged out" | yes | yes | yes
 
-### Register testing (register.html)
+## Register testing (register.html)
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 'username' will only take in aplabetical characters(upper and lower case) and numbers | yes | yes | yes
@@ -226,7 +260,7 @@ Clicking on 'login from here' will take the user to the login.html | yes | yes |
 Clicking on 'sign up' will update the intended mongo database (mongo.db.users) | yes | yes | yes
 Clicking on 'sing up' will also taek the user to their profile page (profile.html) | yes | yes | yes
 
-### Login testing (login.html)
+## Login testing (login.html)
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 'username' will only take in aplabetical characters(upper and lower case) and numbers | yes | yes | yes
@@ -240,7 +274,7 @@ Clicking on 'login' will also take the user to their profile page (profile.html)
 If clicking on 'login' and app.py did not find a match in the details entered, a flash message of "Username and/or password is incorrect" will appear | yes | yes | yes
 If clicking on 'login' and app.py did not find a match in the details entered, details entered will be cleared from the form | yes | yes | yes
 
-### Profile testing (profile.html)
+## Profile testing (profile.html)
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 Username of the user will appear near the top of the page | yes | yes | yes
@@ -256,7 +290,7 @@ Clicking on 'yes' will also lead the user back to the home.html | yes | yes | ye
 A flash message of "You are no longer one of us" should appear | yes | yes | yes
 A card of the most popular recipe based on the ammount of likes will also be on show | yes | yes | yes
 
-### All recipes testing (all_recipes.html)
+## All recipes testing (all_recipes.html)
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 A host of cards should appear containing a picture, title, information regarding likes, servings, and cooking duration from the mongo database (mongo.db.recipes) | yes | yes | yes
@@ -264,13 +298,13 @@ Quantity of cards on show will match the quantity of entries in the mongo databa
 There should be three cards on each row for large+ sized screen | n/a | n/a  | yes
 There should be two cards on each row for medium sized screen | n/a | yes | n/a
 There should be one card on each row in a small sized screen | yes | n/a | n/a
-Clicking on the 'i' icon should lead to another card sliding up contained the name of the recipe and the description | yes | yes | yes
-Clicking on the 'i' icon when the sliding happens should slide it back down | yes | yes | yes
+Clicking on the up-arrow icon should lead to another card sliding up contained the name of the recipe and the description | yes | yes | yes
+Clicking on the down-arrow icon when the sliding happens should slide it back down | yes | yes | yes
 'lets make this' should not be visible if the user is not logged in | yes | yes | yes
 If logged in, 'lets make this' should be visible | yes | yes | yes
 Clicking on 'lets make this' will lead teh user to chosen_recipe.html with detials of the chosen card | yes | yes | yes
 
-### Chosen recipes (chosen_recipe.html)
+## Chosen recipes (chosen_recipe.html)
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 Image of recipe should be near the top | yes | yes | yes
@@ -292,7 +326,7 @@ Clicking on 'no' will remove the modal | yes | yes | yes
 Clicking on 'yes' will delete the recipe from the intended monog database (mongo.db.recipes) | yes | yes | yes
 clicking on 'yes' will also lead the user back to the all_recipes.html | yes | yes | yes
 
-### Edit recipe
+## Edit recipe
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 Each field on the form should match the information on the mongo databse of the recipe chosen to edit | yes | yes | yes
@@ -301,7 +335,7 @@ Clicking on 'edit' will update the informatino of that recipe in the mongo datab
 Clicking on 'edit' will also then lead the user to the all_recipes.html | yes | yes | yes
 Changed information of edited recipe should be visible in ohter pages the recipe appears in (all_recipes.html, chosen_recipes.html, and my_recipes.html) | yes | yes | yes
 
-### Add recipe testing (add_recipe.html)
+## Add recipe testing (add_recipe.html)
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 'recipe name' field should take in any characters | yes | yes | yes
@@ -325,7 +359,7 @@ Clicking on 'share' will update the relevant mongo database | yes | yes | yes
 Clicking on 'share' will also lead teh user to the all_recipes.html | yes | yes | yes
 Flash message of "Recipe has been added" should appear | yes | yes | yes
 
-### Edit recipe testing (edit_recipe.html)
+## Edit recipe testing (edit_recipe.html)
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 All fields should be prefilled witht he details of the chosen recipe to edit | yes | yes | yes
@@ -333,7 +367,7 @@ Clicking on the 'edit' button should update the details of that recipe on the mo
 Clicking on the 'edit' button should lead the user to the my_recipe.html | yes | yes | yes
 Flash message of "Recipe hsa been updated" should appear | yes | yes | yes
 
-### My recipes testing
+## My recipes testing
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 All recipe cards on show will be recipes posted by the user | yes | yes | yes
@@ -341,7 +375,7 @@ There should be three cards on each row for large+ sized screen | n/a | n/a  | y
 There should be two cards on each row in a medium sized screen | yes | yes | n/a
 There should be one card on each row in a small- sized screen | yes | n/a | n/a
 
-### Random recipes testing
+## Random recipes testing
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 Three cards will be on show | yes | yes | yes
@@ -349,7 +383,7 @@ There should be three cards on each row for large+ sized screen | n/a | n/a  | y
 There should be one card on each row in a medium- sized screen | yes | yes | n/a
 Recipe cards will change each time random.html is clicked | yes | yes | yes
 
-### Admin testing
+## Admin testing
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 Ability to edit any recipe | yes | yes | yes
@@ -362,7 +396,7 @@ A flash message of "that chef has been fired" should appear | yes | yes | yes
 A flash message of "user does not exist" should appear if user does not exist | yes | yes | yes
 The form should be cleared of previous entry | yes | yes | yes
 
-### Security testing
+## Security testing
 AIM | Mobile | Tablet | Laptop/PC monitor (Google Chrome)
 --- | --- | --- | --- |
 When logging out, session cookie of user will be deleted | yes | yes | yes
@@ -472,8 +506,5 @@ For experimenting and testing of the website, I used the recipes on [BBC Good Fo
 * [Web Dev Simplified](https://www.youtube.com/watch?v=ofme2o29ngU&t=606s)
 * [W3Schools](https://www.w3schools.com/python/)
 
-
-## NOTES FOR ASSESSMENT
-Login details for admin purposes
-    * username: admin
-    * password: secretpassword123
+## Disclaimer
+This project is for a project set to me by Code Institute, a coding course that I have enrolled in. If any issues occur regarding anything to this project, please feel free to contact me (shiba.cdeb@gmail.com)

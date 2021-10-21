@@ -34,7 +34,6 @@ main {
     background-color: #9FEDD7;
     border: solid black;
     padding: 2rem;
-    /* width: 25%; */
 }
 
 @media (max-width: 600px) {
@@ -83,7 +82,6 @@ main {
 }
 
 #ncc-id-recipeCard .card-action .ncc-blackFont {
-    color: #026670;
     color: black;
 }
 
@@ -101,12 +99,8 @@ header .ncc-navbar-dec {
 
 /* --------- Home page (home.html) --------- */
 .ncc-brandCard {
-    /* background-color: #9FEDD7; */
-    /* background-color: #FCE181; */
     background-color: #EDEAE5;
-    border: none;
     border: solid black;
-    /* border-right-style: hidden; */
     margin-bottom: 2rem;
 }
 
@@ -131,7 +125,6 @@ header .ncc-navbar-dec {
 
 .ncc-homeScreen-p1 .ncc-btn {
     min-width: 40%;
-    /* margin: 0 1rem; */
     color: #EDEAE5;
 }
 
@@ -144,8 +137,6 @@ header .ncc-navbar-dec {
 #ncc-id-homeScreen-p2 h2 {
     padding-top: 10vh;
     text-transform: uppercase;
-    /* border: solid black; */
-    /* border-top-style: hidden; */
 }
 
 .ncc-homeScreen-p2 img {
@@ -190,21 +181,17 @@ header .ncc-navbar-dec {
 
 /* --------- All recipes (all_recipes.html) --------- */
 .ncc-recipeCard-decoration {
-    border: none;
     border: solid black;
 }
 
 .ncc-recipeCardTitle {
     background-color: black;
-    /* opacity: 0.5; */
     width: 100%;
 }
 
 
 /* --------- Chosen recipe (chosen_recipe.html) --------- */
-#ncc-id-chosenCard {
-    /* background-color: #026670; */
-    
+#ncc-id-chosenCard {    
     padding-top: 1rem;
     margin-top: 4rem;
 }
@@ -229,14 +216,11 @@ header .ncc-navbar-dec {
 /* --------- Search recipe (all_recipes.html & my_recipes.html) --------- */
 .ncc-searchForm-decoration {
     background-color: #9FEDD7;
-    /* background-color: #026670; */
     border: solid black;
     padding: 0.5rem 1rem;
 }
 
 .ncc-searchForm-decoration .ncc-btn {
-    background-color: #FEF9C7;
-    background-color: #EDEAE5;
     background-color: #026670;
     color: black;
     min-width: 30%
@@ -251,16 +235,13 @@ header .ncc-navbar-dec {
 
 /* --------- Footer (base.html) --------- */
 footer {
-    background-color: #9FEDD7;
     background-color: #026670;
     padding-bottom: 2rem;
     margin-top: 4rem;
 }
 
 #ncc-footer {
-    /* margin-top: 10rem; */
     padding-top: 1rem;
-    /* border-top: solid black; */
 }
 
 #ncc-footer li {

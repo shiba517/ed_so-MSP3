@@ -92,14 +92,14 @@
                 </div>
                 
                 <div class="card-reveal">
-                    <span class="card-title "><strong>{{ hott[0].recipe_name }}</strong><i class="fas fa-info-circle right ncc-icon-dec"></i></span>
+                    <span class="card-title "><strong>{{ hott[0].recipe_name }}</strong><i class="fas fa-chevron-down right ncc-icon-dec"></i></span>
                     <p>{{ hott[0].recipe_description }}</p>
                 </div>
                 <div class="card-action">
                     {% if session.this_user %}
                     <a href="{{ url_for('chosen_recipe', recipe_id=hott[0]._id) }}" class="ncc-blackFont">Lets make this</a>
                     {% endif %}
-                    <i class="fas fa-info-circle activator small right ncc-icon-dec"></i>
+                    <i class="fas fa-chevron-up activator small right ncc-icon-dec"></i>
                 </div>
             </div>
         </div>
