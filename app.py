@@ -119,12 +119,12 @@ def login():
         if check_user_exists:
             # Checking if correct password has been entered
             if check_password_hash(
-                check_user_exists["password"],
-                request.form.get("password")):
-                    # Correct password was entered
-                    session["this_user"] = request.form.get("username").lower()
-                    return redirect(url_for(
-                        "profile", username=session["this_user"]))
+                    check_user_exists["password"],
+                    request.form.get("password")):
+                # Correct password was entered
+                session["this_user"] = request.form.get("username").lower()
+                return redirect(url_for(
+                    "profile", username=session["this_user"]))
             # Incorrect password was entered
             else:
                 flash("Username and/or password was incorrect")
@@ -228,7 +228,8 @@ def chosen_recipe(recipe_id):
     recipe_instructions = this_recipe["recipe_instructions"]
     recipe_instructions_into_list = re.split("\*", recipe_instructions)
 
-    return render_template("chosen_recipe.html",
+    return render_template(
+        "chosen_recipe.html",
         recipe=this_recipe,
         ingredients=recipe_ingredients_into_list,
         instructions=recipe_instructions_into_list)
@@ -277,8 +278,9 @@ def edit_recipe(recipe_id):
     })
 
     # For security reasons
-    if session.get("this_user") != this_recipe["created_by"] and session.get("this_user") != "admin":
-        return redirect(url_for("error401"))
+    if session.get("this_user") != this_recipe["created_by"]:
+        if session.get("this_user") != "admin":
+            return redirect(url_for("error401"))
 
     # When user clicks on 'edit' button
     if request.method == "POST":
@@ -360,9 +362,10 @@ def search():
     if not session.get("this_user"):
         return redirect(url_for("error404"))
 
-    return render_template("all_recipes.html",
-            recipes=all_recipes,
-            search_message=search_message.format(len(all_recipes)))
+    return render_template(
+        "all_recipes.html",
+        recipes=all_recipes,
+        search_message=search_message.format(len(all_recipes)))
 
 
 # ------------------- Remove account (templates/profile.html)

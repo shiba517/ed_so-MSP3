@@ -17,14 +17,14 @@
                 <!-- name of recipe -->
                 <div class="input-field center col s12">
                     <i class="fas fa-user prefix"></i>
-                    <input placeholder="" id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name }}" type="text" minlength="5"
+                    <input placeholder="" id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name }}" type="text"
                     maxlength="100" class="validate" required>
                     <label for="recipe_name" class="input-field">Recipe name</label>
                 </div>
                 <!-- recipe descriptions -->
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix"></i>
-                    <textarea placeholder="" id="recipe_description" name="recipe_description" minlength="5"
+                    <textarea placeholder="" id="recipe_description" name="recipe_description"
                         maxlength="200" class="materialize-textarea validate" required>
                         {{- recipe.recipe_description -}}
                     </textarea>
@@ -33,19 +33,19 @@
                 <!-- recipe ingredients -->
                 <div class="input-field col s12">
                     <i class="fas fa-lemon prefix"></i>
-                    <textarea placeholder="" id="recipe_ingredients" name="recipe_ingredients" minlength="5" class="materialize-textarea validate" required>{{- recipe.recipe_ingredients -}}</textarea>
+                    <textarea placeholder="" id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea validate" required>{{- recipe.recipe_ingredients -}}</textarea>
                     <label for="recipe_ingredients" class="active">Recipe ingredients (Please enter an * before each ingredient)</label>
                 </div>
                 <!-- recipe instructions -->
                 <div class="input-field col s12">
                     <i class="fas fa-blender prefix"></i>
-                    <textarea placeholder="" id="recipe_instructions" name="recipe_instructions" minlength="5" class="materialize-textarea validate" required>{{- recipe.recipe_instructions -}}</textarea>
+                    <textarea placeholder="" id="recipe_instructions" name="recipe_instructions" class="materialize-textarea validate" required>{{- recipe.recipe_instructions -}}</textarea>
                     <label for="recipe_instructions" class="active">Recipe instructions (Please enter an * before each instruction)</label>
                 </div>
                 <!-- Upload image -->
                 <div class="input-field col s12">
                     <i class="fas fa-image prefix"></i>
-                    <textarea id="recipe_image_url" name="recipe_image_url" pattern="https?://.+"  class="materialize-textarea validate" required>{{- recipe.recipe_image_url -}}</textarea>
+                    <textarea id="recipe_image_url" name="recipe_image_url" pattern="https?://.+"  class="materialize-textarea validate">{{- recipe.recipe_image_url -}}</textarea>
                     <label for="recipe_image_url" class="active">Image url</label>
                 </div>
                 <!-- Additional information -->
