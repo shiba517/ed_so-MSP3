@@ -166,6 +166,10 @@ register.html | [image1](readme_files/images/register_html_validation_before_p1.
 CSS Validator
 [image1](readme_files/images/style_css_validation.png) - no errors found
 
+PEP8 Validator
+[image1](readme_files/images/app_py_pep8_validation_before.png) - non PEP8 compliant
+[image2](readme_files/images/app_py_pep8_validation_after.png) - PEP8 compliant
+
 
 ### User stories testing
 AIM | Achieved?
